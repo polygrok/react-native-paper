@@ -3,6 +3,7 @@ import {
   Animated,
   ColorValue,
   GestureResponderEvent,
+  PressableAndroidRippleConfig,
   StyleProp,
   StyleSheet,
   TextStyle,
@@ -80,6 +81,11 @@ export type Props = $Omit<React.ComponentProps<typeof Surface>, 'mode'> & {
    * Make the label text uppercased. Note that this won't work if you pass React elements as children.
    */
   uppercase?: boolean;
+  /**
+   * Type of background drawabale to display the feedback (Android).
+   * https://reactnative.dev/docs/pressable#rippleconfig
+   */
+  background?: PressableAndroidRippleConfig;
   /**
    * Accessibility label for the button. This is read by the screen reader when the user taps the button.
    */
@@ -170,6 +176,7 @@ const Button = ({
   labelStyle,
   testID = 'button',
   accessible,
+  background,
   ...rest
 }: Props) => {
   const theme = useInternalTheme(themeOverrides);
@@ -304,6 +311,7 @@ const Button = ({
     >
       <TouchableRipple
         borderless
+        background={background}
         onPress={onPress}
         onLongPress={onLongPress}
         onPressIn={hasPassedTouchHandler ? handlePressIn : undefined}

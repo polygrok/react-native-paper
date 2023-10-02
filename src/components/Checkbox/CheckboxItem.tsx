@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {
   GestureResponderEvent,
+  PressableAndroidRippleConfig,
   StyleProp,
   StyleSheet,
   TextStyle,
@@ -33,6 +34,11 @@ export type Props = {
    * Function to execute on press.
    */
   onPress?: (e: GestureResponderEvent) => void;
+  /**
+   * Type of background drawabale to display the feedback (Android).
+   * https://reactnative.dev/docs/pressable#rippleconfig
+   */
+  background?: PressableAndroidRippleConfig;
   /**
    * Accessibility label for the touchable. This is read by the screen reader when the user taps the touchable.
    */
@@ -126,6 +132,7 @@ const CheckboxItem = ({
   disabled,
   labelVariant = 'bodyLarge',
   labelMaxFontSizeMultiplier = 1.5,
+  background,
   ...props
 }: Props) => {
   const theme = useInternalTheme(themeOverrides);
@@ -164,6 +171,7 @@ const CheckboxItem = ({
       testID={testID}
       disabled={disabled}
       theme={theme}
+      background={background}
     >
       <View
         style={[styles.container, style]}

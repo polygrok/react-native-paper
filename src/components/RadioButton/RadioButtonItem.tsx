@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {
   GestureResponderEvent,
+  PressableAndroidRippleConfig,
   StyleProp,
   StyleSheet,
   TextStyle,
@@ -31,6 +32,11 @@ export type Props = {
    * Whether radio is disabled.
    */
   disabled?: boolean;
+  /**
+   * Type of background drawabale to display the feedback (Android).
+   * https://reactnative.dev/docs/pressable#rippleconfig
+   */
+  background?: PressableAndroidRippleConfig;
   /**
    * Function to execute on press.
    */
@@ -128,6 +134,7 @@ const RadioButtonItem = ({
   uncheckedColor,
   status,
   theme: themeOverrides,
+  background,
   accessibilityLabel = label,
   testID,
   mode,
@@ -192,6 +199,7 @@ const RadioButtonItem = ({
             }}
             testID={testID}
             disabled={disabled}
+            background={background}
             theme={theme}
           >
             <View style={[styles.container, style]} pointerEvents="none">
