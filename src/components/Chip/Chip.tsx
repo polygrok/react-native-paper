@@ -386,6 +386,7 @@ const Chip = ({
         <View style={styles.closeButtonStyle}>
           <Pressable
             onPress={onClose}
+            disabled={disabled}
             accessibilityRole="button"
             accessibilityLabel={closeIconAccessibilityLabel}
           >

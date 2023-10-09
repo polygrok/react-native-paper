@@ -30,6 +30,10 @@ export type Props = React.ComponentPropsWithRef<typeof View> & {
    */
   active?: boolean;
   /**
+   * Whether the item is disabled.
+   */
+  disabled?: boolean;
+  /**
    * Function to execute on press.
    */
   onPress?: (e: GestureResponderEvent) => void;
@@ -75,6 +79,7 @@ const DrawerItem = ({
   icon,
   label,
   active,
+  disabled,
   theme: themeOverrides,
   rippleColor: customRippleColor,
   style,
@@ -110,6 +115,7 @@ const DrawerItem = ({
     <View {...rest}>
       <TouchableRipple
         borderless
+        disabled={disabled}
         onPress={onPress}
         style={[
           styles.container,

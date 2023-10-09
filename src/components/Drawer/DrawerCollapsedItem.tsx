@@ -28,6 +28,10 @@ export type Props = React.ComponentPropsWithRef<typeof View> & {
    */
   badge?: string | number | boolean;
   /**
+   * Whether the item is disabled.
+   */
+  disabled?: boolean;
+  /**
    * @renamed Renamed from 'icon' to 'focusedIcon' in v5.x
    * Icon to use as the focused destination icon, can be a string, an image source or a react component
    */
@@ -95,6 +99,7 @@ const DrawerCollapsedItem = ({
   theme: themeOverrides,
   style,
   onPress,
+  disabled,
   accessibilityLabel,
   badge = false,
   testID = 'drawer-collapsed-item',
@@ -165,6 +170,7 @@ const DrawerCollapsedItem = ({
       <Pressable
         onPress={onPress}
         onPressOut={onPress ? handlePressOut : undefined}
+        disabled={disabled}
         // @ts-expect-error We keep old a11y props for backwards compat with old RN versions
         accessibilityTraits={active ? ['button', 'selected'] : 'button'}
         accessibilityComponentType="button"
