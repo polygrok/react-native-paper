@@ -8,7 +8,6 @@ import {
   TouchableWithoutFeedback,
   ViewStyle,
   View,
-  NativeEventSubscription,
 } from 'react-native';
 import {
   getStatusBarHeight,
@@ -117,6 +116,7 @@ function Modal({
   });
 
   const { colors, animation } = theme;
+  const { scale } = animation;
 
   const opacity = useAnimatedValue(visible ? 1 : 0);
 
@@ -126,47 +126,16 @@ function Modal({
     setRendered(true);
   }
 
-  const handleBack = () => {
-    if (dismissable) {
-      hideModal();
-    }
-    return true;
-  };
-
-  const subscription = React.useRef<NativeEventSubscription | undefined>(
-    undefined
-  );
-
-  const showModal = () => {
-    subscription.current?.remove();
-    subscription.current = addEventListener(
-      BackHandler,
-      'hardwareBackPress',
-      handleBack
-    );
-
-    const { scale } = animation;
-
+  const showModal = React.useCallback(() => {
     Animated.timing(opacity, {
       toValue: 1,
       duration: scale * DEFAULT_DURATION,
       easing: Easing.out(Easing.cubic),
       useNativeDriver: true,
     }).start();
-  };
+  }, [opacity, scale]);
 
-  const removeListeners = () => {
-    if (subscription.current?.remove) {
-      subscription.current?.remove();
-    } else {
-      BackHandler.removeEventListener('hardwareBackPress', handleBack);
-    }
-  };
-
-  const hideModal = () => {
-    removeListeners();
-    const { scale } = animation;
-
+  const hideModal = React.useCallback(() => {
     Animated.timing(opacity, {
       toValue: 0,
       duration: scale * DEFAULT_DURATION,
@@ -187,7 +156,28 @@ function Modal({
         setRendered(false);
       }
     });
-  };
+  }, [onDismiss, opacity, scale, showModal]);
+
+  React.useEffect(() => {
+    if (!visible) {
+      return undefined;
+    }
+
+    const onHardwareBackPress = () => {
+      if (dismissable) {
+        hideModal();
+      }
+
+      return true;
+    };
+
+    const subscription = addEventListener(
+      BackHandler,
+      'hardwareBackPress',
+      onHardwareBackPress
+    );
+    return () => subscription.remove();
+  }, [dismissable, hideModal, visible]);
 
   const prevVisible = React.useRef<boolean | null>(null);
 
@@ -201,10 +191,6 @@ function Modal({
     }
     prevVisible.current = visible;
   });
-
-  React.useEffect(() => {
-    return removeListeners;
-  }, []);
 
   if (!rendered) return null;
 

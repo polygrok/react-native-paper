@@ -105,7 +105,7 @@ const AppbarContent = ({
             styles.title,
             titleStyle,
           ]}
-          numberOfLines={1}
+          numberOfLines={2}
           accessible
           accessibilityTraits="header"
           // @ts-expect-error React Native doesn't accept 'heading' as it's web-only
@@ -116,7 +116,7 @@ const AppbarContent = ({
         {subtitle ? (
           <Text
             style={[styles.subtitle, { color: subtitleColor }, subtitleStyle]}
-            numberOfLines={1}
+            numberOfLines={2}
           >
             {subtitle}
           </Text>

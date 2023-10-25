@@ -10,6 +10,7 @@ import {
 import color from 'color';
 
 import ActivityIndicator from './ActivityIndicator';
+import { ActivityIndicator as NativeActivityIndicator } from 'react-native';
 import Icon, { IconSource } from './Icon';
 import Surface from './Surface';
 import Text from './Typography/Text';
@@ -41,6 +42,10 @@ export type Props = React.ComponentProps<typeof Surface> & {
    * Whether to show a loading indicator.
    */
   loading?: boolean;
+  /**
+   * Whether to use native activity loading indicator.
+   */
+  useNativeActivityIndicator?: boolean;
   /**
    * Icon to display for the `Button`.
    */
@@ -131,6 +136,7 @@ const Button = ({
   mode = 'text',
   dark,
   loading,
+  useNativeActivityIndicator = true,
   icon,
   color: buttonColor,
   children,
@@ -302,9 +308,20 @@ const Button = ({
               />
             </View>
           ) : null}
-          {loading ? (
+          {loading && !useNativeActivityIndicator ? (
             <ActivityIndicator
               size={customLabelSize ?? 16}
+              color={
+                typeof customLabelColor === 'string'
+                  ? customLabelColor
+                  : textColor
+              }
+              style={iconStyle}
+            />
+          ) : null}
+          {loading && useNativeActivityIndicator ? (
+            <NativeActivityIndicator
+              size="small"
               color={
                 typeof customLabelColor === 'string'
                   ? customLabelColor

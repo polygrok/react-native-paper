@@ -53,6 +53,7 @@ const TextInputFlat = ({
   label,
   error = false,
   selectionColor,
+  cursorColor,
   underlineColor,
   activeUnderlineColor,
   dense,
@@ -350,6 +351,7 @@ const TextInputFlat = ({
             typeof selectionColor === 'undefined'
               ? activeColor
               : selectionColor,
+          cursorColor,
           onFocus,
           onBlur,
           underlineColorAndroid: 'transparent',

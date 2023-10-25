@@ -50,6 +50,7 @@ const TextInputOutlined = ({
   label,
   error = false,
   selectionColor,
+  cursorColor,
   underlineColor: _underlineColor,
   outlineColor: customOutlineColor,
   activeOutlineColor,
@@ -312,6 +313,7 @@ const TextInputOutlined = ({
               typeof selectionColor === 'undefined'
                 ? activeColor
                 : selectionColor,
+            cursorColor,
             onFocus,
             onBlur,
             underlineColorAndroid: 'transparent',
