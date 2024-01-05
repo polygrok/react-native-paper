@@ -136,7 +136,12 @@ exports[`renders button with an accessibility hint 1`] = `
                     "letterSpacing": 0.1,
                     "lineHeight": 20,
                   },
-                  undefined,
+                  [
+                    {
+                      "fontSize": 18,
+                    },
+                    undefined,
+                  ],
                 ],
               ],
             ]
@@ -287,7 +292,12 @@ exports[`renders button with an accessibility label 1`] = `
                     "letterSpacing": 0.1,
                     "lineHeight": 20,
                   },
-                  undefined,
+                  [
+                    {
+                      "fontSize": 18,
+                    },
+                    undefined,
+                  ],
                 ],
               ],
             ]
@@ -437,7 +447,12 @@ exports[`renders button with button color 1`] = `
                     "letterSpacing": 0.1,
                     "lineHeight": 20,
                   },
-                  undefined,
+                  [
+                    {
+                      "fontSize": 18,
+                    },
+                    undefined,
+                  ],
                 ],
               ],
             ]
@@ -587,7 +602,12 @@ exports[`renders button with color 1`] = `
                     "letterSpacing": 0.1,
                     "lineHeight": 20,
                   },
-                  undefined,
+                  [
+                    {
+                      "fontSize": 18,
+                    },
+                    undefined,
+                  ],
                 ],
               ],
             ]
@@ -737,7 +757,12 @@ exports[`renders button with custom testID 1`] = `
                     "letterSpacing": 0.1,
                     "lineHeight": 20,
                   },
-                  undefined,
+                  [
+                    {
+                      "fontSize": 18,
+                    },
+                    undefined,
+                  ],
                 ],
               ],
             ]
@@ -943,7 +968,12 @@ exports[`renders button with icon 1`] = `
                     "letterSpacing": 0.1,
                     "lineHeight": 20,
                   },
-                  undefined,
+                  [
+                    {
+                      "fontSize": 18,
+                    },
+                    undefined,
+                  ],
                 ],
               ],
             ]
@@ -1151,7 +1181,12 @@ exports[`renders button with icon in reverse order 1`] = `
                     "letterSpacing": 0.1,
                     "lineHeight": 20,
                   },
-                  undefined,
+                  [
+                    {
+                      "fontSize": 18,
+                    },
+                    undefined,
+                  ],
                 ],
               ],
             ]
@@ -1302,7 +1337,12 @@ exports[`renders contained contained with mode 1`] = `
                     "letterSpacing": 0.1,
                     "lineHeight": 20,
                   },
-                  undefined,
+                  [
+                    {
+                      "fontSize": 18,
+                    },
+                    undefined,
+                  ],
                 ],
               ],
             ]
@@ -1452,7 +1492,12 @@ exports[`renders disabled button 1`] = `
                     "letterSpacing": 0.1,
                     "lineHeight": 20,
                   },
-                  undefined,
+                  [
+                    {
+                      "fontSize": 18,
+                    },
+                    undefined,
+                  ],
                 ],
               ],
             ]
@@ -1810,7 +1855,12 @@ exports[`renders loading button 1`] = `
                     "letterSpacing": 0.1,
                     "lineHeight": 20,
                   },
-                  undefined,
+                  [
+                    {
+                      "fontSize": 18,
+                    },
+                    undefined,
+                  ],
                 ],
               ],
             ]
@@ -1961,7 +2011,12 @@ exports[`renders outlined button with mode 1`] = `
                     "letterSpacing": 0.1,
                     "lineHeight": 20,
                   },
-                  undefined,
+                  [
+                    {
+                      "fontSize": 18,
+                    },
+                    undefined,
+                  ],
                 ],
               ],
             ]
@@ -2111,7 +2166,12 @@ exports[`renders text button by default 1`] = `
                     "letterSpacing": 0.1,
                     "lineHeight": 20,
                   },
-                  undefined,
+                  [
+                    {
+                      "fontSize": 18,
+                    },
+                    undefined,
+                  ],
                 ],
               ],
             ]
@@ -2261,7 +2321,12 @@ exports[`renders text button with mode 1`] = `
                     "letterSpacing": 0.1,
                     "lineHeight": 20,
                   },
-                  undefined,
+                  [
+                    {
+                      "fontSize": 18,
+                    },
+                    undefined,
+                  ],
                 ],
               ],
             ]

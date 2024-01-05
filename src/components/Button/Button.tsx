@@ -9,6 +9,7 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
+import { ActivityIndicator as NativeActivityIndicator } from 'react-native';
 
 import color from 'color';
 
@@ -65,6 +66,10 @@ export type Props = $Omit<React.ComponentProps<typeof Surface>, 'mode'> & {
    * Whether to show a loading indicator.
    */
   loading?: boolean;
+  /**
+   * Whether to use native activity loading indicator.
+   */
+  useNativeActivityIndicator?: boolean;
   /**
    * Icon to display for the `Button`.
    */
@@ -157,6 +162,7 @@ const Button = (
     mode = 'text',
     dark,
     loading,
+    useNativeActivityIndicator,
     icon,
     buttonColor: customButtonColor,
     textColor: customTextColor,
@@ -181,6 +187,7 @@ const Button = (
   }: Props,
   ref: React.ForwardedRef<View>
 ) => {
+  labelStyle = [{ fontSize: compact ? 16 : 18 }, labelStyle];
   const theme = useInternalTheme(themeOverrides);
   const isMode = React.useCallback(
     (modeToCompare: ButtonMode) => {
@@ -344,9 +351,20 @@ const Button = (
               />
             </View>
           ) : null}
-          {loading ? (
+          {loading && !useNativeActivityIndicator ? (
             <ActivityIndicator
               size={customLabelSize ?? iconSize}
+              color={
+                typeof customLabelColor === 'string'
+                  ? customLabelColor
+                  : textColor
+              }
+              style={iconStyle}
+            />
+          ) : null}
+          {loading && useNativeActivityIndicator ? (
+            <NativeActivityIndicator
+              size={'small'}
               color={
                 typeof customLabelColor === 'string'
                   ? customLabelColor

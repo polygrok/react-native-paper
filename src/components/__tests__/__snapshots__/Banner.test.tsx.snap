@@ -250,7 +250,12 @@ exports[`render visible banner, with custom theme 1`] = `
                               "letterSpacing": 0.1,
                               "lineHeight": 20,
                             },
-                            undefined,
+                            [
+                              {
+                                "fontSize": 16,
+                              },
+                              undefined,
+                            ],
                           ],
                         ],
                       ]
@@ -673,7 +678,12 @@ exports[`renders visible banner, with action buttons and with image 1`] = `
                               "letterSpacing": 0.1,
                               "lineHeight": 20,
                             },
-                            undefined,
+                            [
+                              {
+                                "fontSize": 16,
+                              },
+                              undefined,
+                            ],
                           ],
                         ],
                       ]
@@ -943,7 +953,12 @@ exports[`renders visible banner, with action buttons and without image 1`] = `
                               "letterSpacing": 0.1,
                               "lineHeight": 20,
                             },
-                            undefined,
+                            [
+                              {
+                                "fontSize": 16,
+                              },
+                              undefined,
+                            ],
                           ],
                         ],
                       ]
@@ -1093,7 +1108,12 @@ exports[`renders visible banner, with action buttons and without image 1`] = `
                               "letterSpacing": 0.1,
                               "lineHeight": 20,
                             },
-                            undefined,
+                            [
+                              {
+                                "fontSize": 16,
+                              },
+                              undefined,
+                            ],
                           ],
                         ],
                       ]

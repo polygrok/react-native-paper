@@ -1873,7 +1873,12 @@ exports[`DataTable.Pagination renders data table pagination with options select 
                           "letterSpacing": 0.1,
                           "lineHeight": 20,
                         },
-                        undefined,
+                        [
+                          {
+                            "fontSize": 18,
+                          },
+                          undefined,
+                        ],
                       ],
                     ],
                   ]
