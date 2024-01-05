@@ -149,7 +149,12 @@ exports[`renders menu with content styles 1`] = `
                           "letterSpacing": 0.1,
                           "lineHeight": 20,
                         },
-                        undefined,
+                        [
+                          {
+                            "fontSize": 18,
+                          },
+                          undefined,
+                        ],
                       ],
                     ],
                   ]
@@ -701,7 +706,12 @@ exports[`renders not visible menu 1`] = `
                         "letterSpacing": 0.1,
                         "lineHeight": 20,
                       },
-                      undefined,
+                      [
+                        {
+                          "fontSize": 18,
+                        },
+                        undefined,
+                      ],
                     ],
                   ],
                 ]
@@ -867,7 +877,12 @@ exports[`renders visible menu 1`] = `
                           "letterSpacing": 0.1,
                           "lineHeight": 20,
                         },
-                        undefined,
+                        [
+                          {
+                            "fontSize": 18,
+                          },
+                          undefined,
+                        ],
                       ],
                     ],
                   ]

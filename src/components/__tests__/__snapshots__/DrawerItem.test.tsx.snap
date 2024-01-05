@@ -55,6 +55,7 @@ exports[`renders DrawerItem with icon 1`] = `
             "marginVertical": 0,
           },
           undefined,
+          undefined,
         ],
       ]
     }
@@ -221,6 +222,7 @@ exports[`renders active DrawerItem 1`] = `
             "marginVertical": 0,
           },
           undefined,
+          undefined,
         ],
       ]
     }
@@ -386,6 +388,7 @@ exports[`renders basic DrawerItem 1`] = `
             "marginRight": 12,
             "marginVertical": 0,
           },
+          undefined,
           undefined,
         ],
       ]

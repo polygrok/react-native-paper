@@ -161,7 +161,7 @@ const AppbarContent = ({
             !isV3 && styles.title,
             titleStyle,
           ]}
-          numberOfLines={1}
+          numberOfLines={2}
           accessible
           accessibilityRole={
             onPress

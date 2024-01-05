@@ -210,6 +210,10 @@ export type Props<Route extends BaseRoute> = {
    * TestID used for testing purposes
    */
   testID?: string;
+  /**
+   * Overrides bar elevation, and margin/padding with custom values.
+   */
+  enableCustomLayout?: boolean;
 };
 
 const MIN_RIPPLE_SCALE = 0.001; // Minimum scale is not 0 due to bug with animation
@@ -382,6 +386,7 @@ const BottomNavigationBar = <Route extends BaseRoute>({
   compact: compactProp,
   testID = 'bottom-navigation-bar',
   theme: themeOverrides,
+  enableCustomLayout = true, //Instead of patching React Navigation to expose this prop, we'll just enable it by default
 }: Props<Route>) => {
   const theme = useInternalTheme(themeOverrides);
   const { bottom, left, right } = useSafeAreaInsets();
@@ -585,7 +590,9 @@ const BottomNavigationBar = <Route extends BaseRoute>({
 
   return (
     <Surface
-      {...(theme.isV3 && { elevation: 0 })}
+      {...(theme.isV3 && !enableCustomLayout
+        ? { elevation: 0 }
+        : { elevation: 4 })}
       testID={testID}
       style={[
         !theme.isV3 && styles.elevation,
@@ -765,17 +772,22 @@ const BottomNavigationBar = <Route extends BaseRoute>({
               children: (
                 <View
                   pointerEvents="none"
-                  style={
+                  style={[
                     isV3 &&
-                    (labeled
-                      ? styles.v3TouchableContainer
-                      : styles.v3NoLabelContainer)
-                  }
+                      (labeled
+                        ? styles.v3TouchableContainer
+                        : styles.v3NoLabelContainer),
+                    enableCustomLayout && {
+                      paddingTop: 6,
+                      paddingBottom: 10,
+                    },
+                  ]}
                 >
                   <Animated.View
                     style={[
                       styles.iconContainer,
                       isV3 && styles.v3IconContainer,
+                      enableCustomLayout && { marginBottom: 0 },
                       (!isV3 || isV3Shifting) && {
                         transform: [{ translateY }],
                       },
