@@ -64,6 +64,10 @@ export type Props = Omit<
    */
   theme?: ThemeProp;
   style?: Animated.WithAnimatedValue<StyleProp<ViewStyle>>;
+  /**
+   *  Causes the appbar to have the MD2 height (56).
+   */
+  enableMd2Height?: boolean;
 };
 
 /**
@@ -160,6 +164,7 @@ const Appbar = ({
   elevated,
   safeAreaInsets,
   theme: themeOverrides,
+  enableMd2Height,
   ...rest
 }: Props) => {
   const theme = useInternalTheme(themeOverrides);
@@ -252,7 +257,10 @@ const Appbar = ({
         { backgroundColor },
         styles.appbar,
         {
-          height: isV3 ? modeAppbarHeight[mode] : DEFAULT_APPBAR_HEIGHT,
+          height:
+            isV3 && !enableMd2Height
+              ? modeAppbarHeight[mode]
+              : DEFAULT_APPBAR_HEIGHT,
         },
         insets,
         restStyle,

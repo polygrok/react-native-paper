@@ -58,6 +58,10 @@ export type Props = React.ComponentProps<typeof Appbar> & {
    */
   theme?: ThemeProp;
   style?: Animated.WithAnimatedValue<StyleProp<ViewStyle>>;
+  /**
+   *  Causes the appbar to have the MD2 height (56).
+   */
+  enableMd2Height?: boolean;
 };
 
 /**
@@ -98,6 +102,7 @@ const AppbarHeader = ({
   elevated = false,
   theme: themeOverrides,
   testID = 'appbar-header',
+  enableMd2Height,
   ...rest
 }: Props) => {
   const theme = useInternalTheme(themeOverrides);
@@ -105,7 +110,9 @@ const AppbarHeader = ({
 
   const flattenedStyle = StyleSheet.flatten(style);
   const {
-    height = isV3 ? modeAppbarHeight[mode] : DEFAULT_APPBAR_HEIGHT,
+    height = isV3 && !enableMd2Height
+      ? modeAppbarHeight[mode]
+      : DEFAULT_APPBAR_HEIGHT,
     elevation = isV3 ? (elevated ? 2 : 0) : 4,
     backgroundColor: customBackground,
     zIndex = isV3 && elevated ? 1 : 0,

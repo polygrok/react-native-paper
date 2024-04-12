@@ -64,6 +64,10 @@ export type Props = React.ComponentPropsWithRef<typeof View> & {
    * @optional
    */
   theme?: ThemeProp;
+  /**
+   * Makes drawer item font larger and removes some margin/padding.
+   */
+  enableCustomStyle?: boolean;
 };
 
 /**
@@ -98,6 +102,7 @@ const DrawerItem = ({
   accessibilityLabel,
   right,
   labelMaxFontSizeMultiplier,
+  enableCustomStyle,
   ...rest
 }: Props) => {
   const theme = useInternalTheme(themeOverrides);
@@ -134,6 +139,11 @@ const DrawerItem = ({
           styles.container,
           { backgroundColor, borderRadius },
           isV3 && styles.v3Container,
+          enableCustomStyle && {
+            height: 50,
+            marginLeft: 6,
+            marginRight: 6,
+          },
           style,
         ]}
         accessibilityRole="button"
@@ -148,7 +158,7 @@ const DrawerItem = ({
               <Icon source={icon} size={24} color={contentColor} />
             ) : null}
             <Text
-              variant="labelLarge"
+              variant={enableCustomStyle ? 'bodyMedium' : 'labelLarge'}
               selectable={false}
               numberOfLines={1}
               style={[

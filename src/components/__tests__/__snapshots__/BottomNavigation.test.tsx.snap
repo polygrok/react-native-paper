@@ -74,17 +74,17 @@ exports[`allows customizing Route's type via generics 1`] = `
     collapsable={false}
     style={
       {
-        "backgroundColor": "transparent",
+        "backgroundColor": "rgb(236, 230, 243)",
         "bottom": 0,
         "left": 0,
         "right": 0,
         "shadowColor": "#000",
         "shadowOffset": {
-          "height": 0,
+          "height": 6,
           "width": 0,
         },
-        "shadowOpacity": 0,
-        "shadowRadius": 0,
+        "shadowOpacity": 0.15,
+        "shadowRadius": 10,
       }
     }
     testID="bottom-navigation-bar-outer-layer"
@@ -95,15 +95,15 @@ exports[`allows customizing Route's type via generics 1`] = `
       pointerEvents="none"
       style={
         {
-          "backgroundColor": "transparent",
+          "backgroundColor": "rgb(236, 230, 243)",
           "flex": undefined,
           "shadowColor": "#000",
           "shadowOffset": {
-            "height": 0,
+            "height": 2,
             "width": 0,
           },
-          "shadowOpacity": 0,
-          "shadowRadius": 0,
+          "shadowOpacity": 0.3,
+          "shadowRadius": 3,
         }
       }
       testID="bottom-navigation-bar"
@@ -181,10 +181,16 @@ exports[`allows customizing Route's type via generics 1`] = `
             <View
               pointerEvents="none"
               style={
-                {
-                  "paddingBottom": 16,
-                  "paddingTop": 12,
-                }
+                [
+                  {
+                    "paddingBottom": 16,
+                    "paddingTop": 12,
+                  },
+                  {
+                    "paddingBottom": 10,
+                    "paddingTop": 6,
+                  },
+                ]
               }
             >
               <View
@@ -194,7 +200,7 @@ exports[`allows customizing Route's type via generics 1`] = `
                     "alignSelf": "center",
                     "height": 32,
                     "justifyContent": "center",
-                    "marginBottom": 4,
+                    "marginBottom": 0,
                     "marginHorizontal": 12,
                     "marginTop": 0,
                     "width": 32,
@@ -451,10 +457,16 @@ exports[`allows customizing Route's type via generics 1`] = `
             <View
               pointerEvents="none"
               style={
-                {
-                  "paddingBottom": 16,
-                  "paddingTop": 12,
-                }
+                [
+                  {
+                    "paddingBottom": 16,
+                    "paddingTop": 12,
+                  },
+                  {
+                    "paddingBottom": 10,
+                    "paddingTop": 6,
+                  },
+                ]
               }
             >
               <View
@@ -464,7 +476,7 @@ exports[`allows customizing Route's type via generics 1`] = `
                     "alignSelf": "center",
                     "height": 32,
                     "justifyContent": "center",
-                    "marginBottom": 4,
+                    "marginBottom": 0,
                     "marginHorizontal": 12,
                     "marginTop": 0,
                     "width": 32,
@@ -739,17 +751,17 @@ exports[`hides labels in non-shifting bottom navigation 1`] = `
     collapsable={false}
     style={
       {
-        "backgroundColor": "transparent",
+        "backgroundColor": "rgb(236, 230, 243)",
         "bottom": 0,
         "left": 0,
         "right": 0,
         "shadowColor": "#000",
         "shadowOffset": {
-          "height": 0,
+          "height": 6,
           "width": 0,
         },
-        "shadowOpacity": 0,
-        "shadowRadius": 0,
+        "shadowOpacity": 0.15,
+        "shadowRadius": 10,
       }
     }
     testID="bottom-navigation-bar-outer-layer"
@@ -760,15 +772,15 @@ exports[`hides labels in non-shifting bottom navigation 1`] = `
       pointerEvents="none"
       style={
         {
-          "backgroundColor": "transparent",
+          "backgroundColor": "rgb(236, 230, 243)",
           "flex": undefined,
           "shadowColor": "#000",
           "shadowOffset": {
-            "height": 0,
+            "height": 2,
             "width": 0,
           },
-          "shadowOpacity": 0,
-          "shadowRadius": 0,
+          "shadowOpacity": 0.3,
+          "shadowRadius": 3,
         }
       }
       testID="bottom-navigation-bar"
@@ -846,11 +858,17 @@ exports[`hides labels in non-shifting bottom navigation 1`] = `
             <View
               pointerEvents="none"
               style={
-                {
-                  "alignItems": "center",
-                  "height": 80,
-                  "justifyContent": "center",
-                }
+                [
+                  {
+                    "alignItems": "center",
+                    "height": 80,
+                    "justifyContent": "center",
+                  },
+                  {
+                    "paddingBottom": 10,
+                    "paddingTop": 6,
+                  },
+                ]
               }
             >
               <View
@@ -860,7 +878,7 @@ exports[`hides labels in non-shifting bottom navigation 1`] = `
                     "alignSelf": "center",
                     "height": 32,
                     "justifyContent": "center",
-                    "marginBottom": 4,
+                    "marginBottom": 0,
                     "marginHorizontal": 12,
                     "marginTop": 0,
                     "width": 32,
@@ -1071,11 +1089,17 @@ exports[`hides labels in non-shifting bottom navigation 1`] = `
             <View
               pointerEvents="none"
               style={
-                {
-                  "alignItems": "center",
-                  "height": 80,
-                  "justifyContent": "center",
-                }
+                [
+                  {
+                    "alignItems": "center",
+                    "height": 80,
+                    "justifyContent": "center",
+                  },
+                  {
+                    "paddingBottom": 10,
+                    "paddingTop": 6,
+                  },
+                ]
               }
             >
               <View
@@ -1085,7 +1109,7 @@ exports[`hides labels in non-shifting bottom navigation 1`] = `
                     "alignSelf": "center",
                     "height": 32,
                     "justifyContent": "center",
-                    "marginBottom": 4,
+                    "marginBottom": 0,
                     "marginHorizontal": 12,
                     "marginTop": 0,
                     "width": 32,
@@ -1279,11 +1303,17 @@ exports[`hides labels in non-shifting bottom navigation 1`] = `
             <View
               pointerEvents="none"
               style={
-                {
-                  "alignItems": "center",
-                  "height": 80,
-                  "justifyContent": "center",
-                }
+                [
+                  {
+                    "alignItems": "center",
+                    "height": 80,
+                    "justifyContent": "center",
+                  },
+                  {
+                    "paddingBottom": 10,
+                    "paddingTop": 6,
+                  },
+                ]
               }
             >
               <View
@@ -1293,7 +1323,7 @@ exports[`hides labels in non-shifting bottom navigation 1`] = `
                     "alignSelf": "center",
                     "height": 32,
                     "justifyContent": "center",
-                    "marginBottom": 4,
+                    "marginBottom": 0,
                     "marginHorizontal": 12,
                     "marginTop": 0,
                     "width": 32,
@@ -1522,17 +1552,17 @@ exports[`hides labels in shifting bottom navigation 1`] = `
     collapsable={false}
     style={
       {
-        "backgroundColor": "transparent",
+        "backgroundColor": "rgb(236, 230, 243)",
         "bottom": 0,
         "left": 0,
         "right": 0,
         "shadowColor": "#000",
         "shadowOffset": {
-          "height": 0,
+          "height": 6,
           "width": 0,
         },
-        "shadowOpacity": 0,
-        "shadowRadius": 0,
+        "shadowOpacity": 0.15,
+        "shadowRadius": 10,
       }
     }
     testID="bottom-navigation-bar-outer-layer"
@@ -1543,15 +1573,15 @@ exports[`hides labels in shifting bottom navigation 1`] = `
       pointerEvents="none"
       style={
         {
-          "backgroundColor": "transparent",
+          "backgroundColor": "rgb(236, 230, 243)",
           "flex": undefined,
           "shadowColor": "#000",
           "shadowOffset": {
-            "height": 0,
+            "height": 2,
             "width": 0,
           },
-          "shadowOpacity": 0,
-          "shadowRadius": 0,
+          "shadowOpacity": 0.3,
+          "shadowRadius": 3,
         }
       }
       testID="bottom-navigation-bar"
@@ -1629,11 +1659,17 @@ exports[`hides labels in shifting bottom navigation 1`] = `
             <View
               pointerEvents="none"
               style={
-                {
-                  "alignItems": "center",
-                  "height": 80,
-                  "justifyContent": "center",
-                }
+                [
+                  {
+                    "alignItems": "center",
+                    "height": 80,
+                    "justifyContent": "center",
+                  },
+                  {
+                    "paddingBottom": 10,
+                    "paddingTop": 6,
+                  },
+                ]
               }
             >
               <View
@@ -1643,7 +1679,7 @@ exports[`hides labels in shifting bottom navigation 1`] = `
                     "alignSelf": "center",
                     "height": 32,
                     "justifyContent": "center",
-                    "marginBottom": 4,
+                    "marginBottom": 0,
                     "marginHorizontal": 12,
                     "marginTop": 0,
                     "width": 32,
@@ -1854,11 +1890,17 @@ exports[`hides labels in shifting bottom navigation 1`] = `
             <View
               pointerEvents="none"
               style={
-                {
-                  "alignItems": "center",
-                  "height": 80,
-                  "justifyContent": "center",
-                }
+                [
+                  {
+                    "alignItems": "center",
+                    "height": 80,
+                    "justifyContent": "center",
+                  },
+                  {
+                    "paddingBottom": 10,
+                    "paddingTop": 6,
+                  },
+                ]
               }
             >
               <View
@@ -1868,7 +1910,7 @@ exports[`hides labels in shifting bottom navigation 1`] = `
                     "alignSelf": "center",
                     "height": 32,
                     "justifyContent": "center",
-                    "marginBottom": 4,
+                    "marginBottom": 0,
                     "marginHorizontal": 12,
                     "marginTop": 0,
                     "width": 32,
@@ -2062,11 +2104,17 @@ exports[`hides labels in shifting bottom navigation 1`] = `
             <View
               pointerEvents="none"
               style={
-                {
-                  "alignItems": "center",
-                  "height": 80,
-                  "justifyContent": "center",
-                }
+                [
+                  {
+                    "alignItems": "center",
+                    "height": 80,
+                    "justifyContent": "center",
+                  },
+                  {
+                    "paddingBottom": 10,
+                    "paddingTop": 6,
+                  },
+                ]
               }
             >
               <View
@@ -2076,7 +2124,7 @@ exports[`hides labels in shifting bottom navigation 1`] = `
                     "alignSelf": "center",
                     "height": 32,
                     "justifyContent": "center",
-                    "marginBottom": 4,
+                    "marginBottom": 0,
                     "marginHorizontal": 12,
                     "marginTop": 0,
                     "width": 32,
@@ -2437,17 +2485,17 @@ exports[`renders bottom navigation with getLazy 1`] = `
     collapsable={false}
     style={
       {
-        "backgroundColor": "transparent",
+        "backgroundColor": "rgb(236, 230, 243)",
         "bottom": 0,
         "left": 0,
         "right": 0,
         "shadowColor": "#000",
         "shadowOffset": {
-          "height": 0,
+          "height": 6,
           "width": 0,
         },
-        "shadowOpacity": 0,
-        "shadowRadius": 0,
+        "shadowOpacity": 0.15,
+        "shadowRadius": 10,
       }
     }
     testID="bottom-navigation-bar-outer-layer"
@@ -2458,15 +2506,15 @@ exports[`renders bottom navigation with getLazy 1`] = `
       pointerEvents="none"
       style={
         {
-          "backgroundColor": "transparent",
+          "backgroundColor": "rgb(236, 230, 243)",
           "flex": undefined,
           "shadowColor": "#000",
           "shadowOffset": {
-            "height": 0,
+            "height": 2,
             "width": 0,
           },
-          "shadowOpacity": 0,
-          "shadowRadius": 0,
+          "shadowOpacity": 0.3,
+          "shadowRadius": 3,
         }
       }
       testID="bottom-navigation-bar"
@@ -2544,10 +2592,16 @@ exports[`renders bottom navigation with getLazy 1`] = `
             <View
               pointerEvents="none"
               style={
-                {
-                  "paddingBottom": 16,
-                  "paddingTop": 12,
-                }
+                [
+                  {
+                    "paddingBottom": 16,
+                    "paddingTop": 12,
+                  },
+                  {
+                    "paddingBottom": 10,
+                    "paddingTop": 6,
+                  },
+                ]
               }
             >
               <View
@@ -2557,7 +2611,7 @@ exports[`renders bottom navigation with getLazy 1`] = `
                     "alignSelf": "center",
                     "height": 32,
                     "justifyContent": "center",
-                    "marginBottom": 4,
+                    "marginBottom": 0,
                     "marginHorizontal": 12,
                     "marginTop": 0,
                     "width": 32,
@@ -2888,10 +2942,16 @@ exports[`renders bottom navigation with getLazy 1`] = `
             <View
               pointerEvents="none"
               style={
-                {
-                  "paddingBottom": 16,
-                  "paddingTop": 12,
-                }
+                [
+                  {
+                    "paddingBottom": 16,
+                    "paddingTop": 12,
+                  },
+                  {
+                    "paddingBottom": 10,
+                    "paddingTop": 6,
+                  },
+                ]
               }
             >
               <View
@@ -2901,7 +2961,7 @@ exports[`renders bottom navigation with getLazy 1`] = `
                     "alignSelf": "center",
                     "height": 32,
                     "justifyContent": "center",
-                    "marginBottom": 4,
+                    "marginBottom": 0,
                     "marginHorizontal": 12,
                     "marginTop": 0,
                     "width": 32,
@@ -3215,10 +3275,16 @@ exports[`renders bottom navigation with getLazy 1`] = `
             <View
               pointerEvents="none"
               style={
-                {
-                  "paddingBottom": 16,
-                  "paddingTop": 12,
-                }
+                [
+                  {
+                    "paddingBottom": 16,
+                    "paddingTop": 12,
+                  },
+                  {
+                    "paddingBottom": 10,
+                    "paddingTop": 6,
+                  },
+                ]
               }
             >
               <View
@@ -3228,7 +3294,7 @@ exports[`renders bottom navigation with getLazy 1`] = `
                     "alignSelf": "center",
                     "height": 32,
                     "justifyContent": "center",
-                    "marginBottom": 4,
+                    "marginBottom": 0,
                     "marginHorizontal": 12,
                     "marginTop": 0,
                     "width": 32,
@@ -3542,10 +3608,16 @@ exports[`renders bottom navigation with getLazy 1`] = `
             <View
               pointerEvents="none"
               style={
-                {
-                  "paddingBottom": 16,
-                  "paddingTop": 12,
-                }
+                [
+                  {
+                    "paddingBottom": 16,
+                    "paddingTop": 12,
+                  },
+                  {
+                    "paddingBottom": 10,
+                    "paddingTop": 6,
+                  },
+                ]
               }
             >
               <View
@@ -3555,7 +3627,7 @@ exports[`renders bottom navigation with getLazy 1`] = `
                     "alignSelf": "center",
                     "height": 32,
                     "justifyContent": "center",
-                    "marginBottom": 4,
+                    "marginBottom": 0,
                     "marginHorizontal": 12,
                     "marginTop": 0,
                     "width": 32,
@@ -3869,10 +3941,16 @@ exports[`renders bottom navigation with getLazy 1`] = `
             <View
               pointerEvents="none"
               style={
-                {
-                  "paddingBottom": 16,
-                  "paddingTop": 12,
-                }
+                [
+                  {
+                    "paddingBottom": 16,
+                    "paddingTop": 12,
+                  },
+                  {
+                    "paddingBottom": 10,
+                    "paddingTop": 6,
+                  },
+                ]
               }
             >
               <View
@@ -3882,7 +3960,7 @@ exports[`renders bottom navigation with getLazy 1`] = `
                     "alignSelf": "center",
                     "height": 32,
                     "justifyContent": "center",
-                    "marginBottom": 4,
+                    "marginBottom": 0,
                     "marginHorizontal": 12,
                     "marginTop": 0,
                     "width": 32,
@@ -4231,17 +4309,17 @@ exports[`renders bottom navigation with scene animation 1`] = `
     collapsable={false}
     style={
       {
-        "backgroundColor": "transparent",
+        "backgroundColor": "rgb(236, 230, 243)",
         "bottom": 0,
         "left": 0,
         "right": 0,
         "shadowColor": "#000",
         "shadowOffset": {
-          "height": 0,
+          "height": 6,
           "width": 0,
         },
-        "shadowOpacity": 0,
-        "shadowRadius": 0,
+        "shadowOpacity": 0.15,
+        "shadowRadius": 10,
       }
     }
     testID="bottom-navigation-bar-outer-layer"
@@ -4252,15 +4330,15 @@ exports[`renders bottom navigation with scene animation 1`] = `
       pointerEvents="none"
       style={
         {
-          "backgroundColor": "transparent",
+          "backgroundColor": "rgb(236, 230, 243)",
           "flex": undefined,
           "shadowColor": "#000",
           "shadowOffset": {
-            "height": 0,
+            "height": 2,
             "width": 0,
           },
-          "shadowOpacity": 0,
-          "shadowRadius": 0,
+          "shadowOpacity": 0.3,
+          "shadowRadius": 3,
         }
       }
       testID="bottom-navigation-bar"
@@ -4338,10 +4416,16 @@ exports[`renders bottom navigation with scene animation 1`] = `
             <View
               pointerEvents="none"
               style={
-                {
-                  "paddingBottom": 16,
-                  "paddingTop": 12,
-                }
+                [
+                  {
+                    "paddingBottom": 16,
+                    "paddingTop": 12,
+                  },
+                  {
+                    "paddingBottom": 10,
+                    "paddingTop": 6,
+                  },
+                ]
               }
             >
               <View
@@ -4351,7 +4435,7 @@ exports[`renders bottom navigation with scene animation 1`] = `
                     "alignSelf": "center",
                     "height": 32,
                     "justifyContent": "center",
-                    "marginBottom": 4,
+                    "marginBottom": 0,
                     "marginHorizontal": 12,
                     "marginTop": 0,
                     "transform": [
@@ -4632,10 +4716,16 @@ exports[`renders bottom navigation with scene animation 1`] = `
             <View
               pointerEvents="none"
               style={
-                {
-                  "paddingBottom": 16,
-                  "paddingTop": 12,
-                }
+                [
+                  {
+                    "paddingBottom": 16,
+                    "paddingTop": 12,
+                  },
+                  {
+                    "paddingBottom": 10,
+                    "paddingTop": 6,
+                  },
+                ]
               }
             >
               <View
@@ -4645,7 +4735,7 @@ exports[`renders bottom navigation with scene animation 1`] = `
                     "alignSelf": "center",
                     "height": 32,
                     "justifyContent": "center",
-                    "marginBottom": 4,
+                    "marginBottom": 0,
                     "marginHorizontal": 12,
                     "marginTop": 0,
                     "transform": [
@@ -4909,10 +4999,16 @@ exports[`renders bottom navigation with scene animation 1`] = `
             <View
               pointerEvents="none"
               style={
-                {
-                  "paddingBottom": 16,
-                  "paddingTop": 12,
-                }
+                [
+                  {
+                    "paddingBottom": 16,
+                    "paddingTop": 12,
+                  },
+                  {
+                    "paddingBottom": 10,
+                    "paddingTop": 6,
+                  },
+                ]
               }
             >
               <View
@@ -4922,7 +5018,7 @@ exports[`renders bottom navigation with scene animation 1`] = `
                     "alignSelf": "center",
                     "height": 32,
                     "justifyContent": "center",
-                    "marginBottom": 4,
+                    "marginBottom": 0,
                     "marginHorizontal": 12,
                     "marginTop": 0,
                     "transform": [
@@ -5186,10 +5282,16 @@ exports[`renders bottom navigation with scene animation 1`] = `
             <View
               pointerEvents="none"
               style={
-                {
-                  "paddingBottom": 16,
-                  "paddingTop": 12,
-                }
+                [
+                  {
+                    "paddingBottom": 16,
+                    "paddingTop": 12,
+                  },
+                  {
+                    "paddingBottom": 10,
+                    "paddingTop": 6,
+                  },
+                ]
               }
             >
               <View
@@ -5199,7 +5301,7 @@ exports[`renders bottom navigation with scene animation 1`] = `
                     "alignSelf": "center",
                     "height": 32,
                     "justifyContent": "center",
-                    "marginBottom": 4,
+                    "marginBottom": 0,
                     "marginHorizontal": 12,
                     "marginTop": 0,
                     "transform": [
@@ -5463,10 +5565,16 @@ exports[`renders bottom navigation with scene animation 1`] = `
             <View
               pointerEvents="none"
               style={
-                {
-                  "paddingBottom": 16,
-                  "paddingTop": 12,
-                }
+                [
+                  {
+                    "paddingBottom": 16,
+                    "paddingTop": 12,
+                  },
+                  {
+                    "paddingBottom": 10,
+                    "paddingTop": 6,
+                  },
+                ]
               }
             >
               <View
@@ -5476,7 +5584,7 @@ exports[`renders bottom navigation with scene animation 1`] = `
                     "alignSelf": "center",
                     "height": 32,
                     "justifyContent": "center",
-                    "marginBottom": 4,
+                    "marginBottom": 0,
                     "marginHorizontal": 12,
                     "marginTop": 0,
                     "transform": [
@@ -5775,17 +5883,17 @@ exports[`renders custom icon and label in non-shifting bottom navigation 1`] = `
     collapsable={false}
     style={
       {
-        "backgroundColor": "transparent",
+        "backgroundColor": "rgb(236, 230, 243)",
         "bottom": 0,
         "left": 0,
         "right": 0,
         "shadowColor": "#000",
         "shadowOffset": {
-          "height": 0,
+          "height": 6,
           "width": 0,
         },
-        "shadowOpacity": 0,
-        "shadowRadius": 0,
+        "shadowOpacity": 0.15,
+        "shadowRadius": 10,
       }
     }
     testID="bottom-navigation-bar-outer-layer"
@@ -5796,15 +5904,15 @@ exports[`renders custom icon and label in non-shifting bottom navigation 1`] = `
       pointerEvents="none"
       style={
         {
-          "backgroundColor": "transparent",
+          "backgroundColor": "rgb(236, 230, 243)",
           "flex": undefined,
           "shadowColor": "#000",
           "shadowOffset": {
-            "height": 0,
+            "height": 2,
             "width": 0,
           },
-          "shadowOpacity": 0,
-          "shadowRadius": 0,
+          "shadowOpacity": 0.3,
+          "shadowRadius": 3,
         }
       }
       testID="bottom-navigation-bar"
@@ -5882,10 +5990,16 @@ exports[`renders custom icon and label in non-shifting bottom navigation 1`] = `
             <View
               pointerEvents="none"
               style={
-                {
-                  "paddingBottom": 16,
-                  "paddingTop": 12,
-                }
+                [
+                  {
+                    "paddingBottom": 16,
+                    "paddingTop": 12,
+                  },
+                  {
+                    "paddingBottom": 10,
+                    "paddingTop": 6,
+                  },
+                ]
               }
             >
               <View
@@ -5895,7 +6009,7 @@ exports[`renders custom icon and label in non-shifting bottom navigation 1`] = `
                     "alignSelf": "center",
                     "height": 32,
                     "justifyContent": "center",
-                    "marginBottom": 4,
+                    "marginBottom": 0,
                     "marginHorizontal": 12,
                     "marginTop": 0,
                     "width": 32,
@@ -6087,10 +6201,16 @@ exports[`renders custom icon and label in non-shifting bottom navigation 1`] = `
             <View
               pointerEvents="none"
               style={
-                {
-                  "paddingBottom": 16,
-                  "paddingTop": 12,
-                }
+                [
+                  {
+                    "paddingBottom": 16,
+                    "paddingTop": 12,
+                  },
+                  {
+                    "paddingBottom": 10,
+                    "paddingTop": 6,
+                  },
+                ]
               }
             >
               <View
@@ -6100,7 +6220,7 @@ exports[`renders custom icon and label in non-shifting bottom navigation 1`] = `
                     "alignSelf": "center",
                     "height": 32,
                     "justifyContent": "center",
-                    "marginBottom": 4,
+                    "marginBottom": 0,
                     "marginHorizontal": 12,
                     "marginTop": 0,
                     "width": 32,
@@ -6275,10 +6395,16 @@ exports[`renders custom icon and label in non-shifting bottom navigation 1`] = `
             <View
               pointerEvents="none"
               style={
-                {
-                  "paddingBottom": 16,
-                  "paddingTop": 12,
-                }
+                [
+                  {
+                    "paddingBottom": 16,
+                    "paddingTop": 12,
+                  },
+                  {
+                    "paddingBottom": 10,
+                    "paddingTop": 6,
+                  },
+                ]
               }
             >
               <View
@@ -6288,7 +6414,7 @@ exports[`renders custom icon and label in non-shifting bottom navigation 1`] = `
                     "alignSelf": "center",
                     "height": 32,
                     "justifyContent": "center",
-                    "marginBottom": 4,
+                    "marginBottom": 0,
                     "marginHorizontal": 12,
                     "marginTop": 0,
                     "width": 32,
@@ -6498,17 +6624,17 @@ exports[`renders custom icon and label in shifting bottom navigation 1`] = `
     collapsable={false}
     style={
       {
-        "backgroundColor": "transparent",
+        "backgroundColor": "rgb(236, 230, 243)",
         "bottom": 0,
         "left": 0,
         "right": 0,
         "shadowColor": "#000",
         "shadowOffset": {
-          "height": 0,
+          "height": 6,
           "width": 0,
         },
-        "shadowOpacity": 0,
-        "shadowRadius": 0,
+        "shadowOpacity": 0.15,
+        "shadowRadius": 10,
       }
     }
     testID="bottom-navigation-bar-outer-layer"
@@ -6519,15 +6645,15 @@ exports[`renders custom icon and label in shifting bottom navigation 1`] = `
       pointerEvents="none"
       style={
         {
-          "backgroundColor": "transparent",
+          "backgroundColor": "rgb(236, 230, 243)",
           "flex": undefined,
           "shadowColor": "#000",
           "shadowOffset": {
-            "height": 0,
+            "height": 2,
             "width": 0,
           },
-          "shadowOpacity": 0,
-          "shadowRadius": 0,
+          "shadowOpacity": 0.3,
+          "shadowRadius": 3,
         }
       }
       testID="bottom-navigation-bar"
@@ -6605,10 +6731,16 @@ exports[`renders custom icon and label in shifting bottom navigation 1`] = `
             <View
               pointerEvents="none"
               style={
-                {
-                  "paddingBottom": 16,
-                  "paddingTop": 12,
-                }
+                [
+                  {
+                    "paddingBottom": 16,
+                    "paddingTop": 12,
+                  },
+                  {
+                    "paddingBottom": 10,
+                    "paddingTop": 6,
+                  },
+                ]
               }
             >
               <View
@@ -6618,7 +6750,7 @@ exports[`renders custom icon and label in shifting bottom navigation 1`] = `
                     "alignSelf": "center",
                     "height": 32,
                     "justifyContent": "center",
-                    "marginBottom": 4,
+                    "marginBottom": 0,
                     "marginHorizontal": 12,
                     "marginTop": 0,
                     "transform": [
@@ -6797,10 +6929,16 @@ exports[`renders custom icon and label in shifting bottom navigation 1`] = `
             <View
               pointerEvents="none"
               style={
-                {
-                  "paddingBottom": 16,
-                  "paddingTop": 12,
-                }
+                [
+                  {
+                    "paddingBottom": 16,
+                    "paddingTop": 12,
+                  },
+                  {
+                    "paddingBottom": 10,
+                    "paddingTop": 6,
+                  },
+                ]
               }
             >
               <View
@@ -6810,7 +6948,7 @@ exports[`renders custom icon and label in shifting bottom navigation 1`] = `
                     "alignSelf": "center",
                     "height": 32,
                     "justifyContent": "center",
-                    "marginBottom": 4,
+                    "marginBottom": 0,
                     "marginHorizontal": 12,
                     "marginTop": 0,
                     "transform": [
@@ -6972,10 +7110,16 @@ exports[`renders custom icon and label in shifting bottom navigation 1`] = `
             <View
               pointerEvents="none"
               style={
-                {
-                  "paddingBottom": 16,
-                  "paddingTop": 12,
-                }
+                [
+                  {
+                    "paddingBottom": 16,
+                    "paddingTop": 12,
+                  },
+                  {
+                    "paddingBottom": 10,
+                    "paddingTop": 6,
+                  },
+                ]
               }
             >
               <View
@@ -6985,7 +7129,7 @@ exports[`renders custom icon and label in shifting bottom navigation 1`] = `
                     "alignSelf": "center",
                     "height": 32,
                     "justifyContent": "center",
-                    "marginBottom": 4,
+                    "marginBottom": 0,
                     "marginHorizontal": 12,
                     "marginTop": 0,
                     "transform": [
@@ -7147,10 +7291,16 @@ exports[`renders custom icon and label in shifting bottom navigation 1`] = `
             <View
               pointerEvents="none"
               style={
-                {
-                  "paddingBottom": 16,
-                  "paddingTop": 12,
-                }
+                [
+                  {
+                    "paddingBottom": 16,
+                    "paddingTop": 12,
+                  },
+                  {
+                    "paddingBottom": 10,
+                    "paddingTop": 6,
+                  },
+                ]
               }
             >
               <View
@@ -7160,7 +7310,7 @@ exports[`renders custom icon and label in shifting bottom navigation 1`] = `
                     "alignSelf": "center",
                     "height": 32,
                     "justifyContent": "center",
-                    "marginBottom": 4,
+                    "marginBottom": 0,
                     "marginHorizontal": 12,
                     "marginTop": 0,
                     "transform": [
@@ -7322,10 +7472,16 @@ exports[`renders custom icon and label in shifting bottom navigation 1`] = `
             <View
               pointerEvents="none"
               style={
-                {
-                  "paddingBottom": 16,
-                  "paddingTop": 12,
-                }
+                [
+                  {
+                    "paddingBottom": 16,
+                    "paddingTop": 12,
+                  },
+                  {
+                    "paddingBottom": 10,
+                    "paddingTop": 6,
+                  },
+                ]
               }
             >
               <View
@@ -7335,7 +7491,7 @@ exports[`renders custom icon and label in shifting bottom navigation 1`] = `
                     "alignSelf": "center",
                     "height": 32,
                     "justifyContent": "center",
-                    "marginBottom": 4,
+                    "marginBottom": 0,
                     "marginHorizontal": 12,
                     "marginTop": 0,
                     "transform": [
@@ -7532,17 +7688,17 @@ exports[`renders custom icon and label with custom colors in non-shifting bottom
     collapsable={false}
     style={
       {
-        "backgroundColor": "transparent",
+        "backgroundColor": "rgb(236, 230, 243)",
         "bottom": 0,
         "left": 0,
         "right": 0,
         "shadowColor": "#000",
         "shadowOffset": {
-          "height": 0,
+          "height": 6,
           "width": 0,
         },
-        "shadowOpacity": 0,
-        "shadowRadius": 0,
+        "shadowOpacity": 0.15,
+        "shadowRadius": 10,
       }
     }
     testID="bottom-navigation-bar-outer-layer"
@@ -7553,15 +7709,15 @@ exports[`renders custom icon and label with custom colors in non-shifting bottom
       pointerEvents="none"
       style={
         {
-          "backgroundColor": "transparent",
+          "backgroundColor": "rgb(236, 230, 243)",
           "flex": undefined,
           "shadowColor": "#000",
           "shadowOffset": {
-            "height": 0,
+            "height": 2,
             "width": 0,
           },
-          "shadowOpacity": 0,
-          "shadowRadius": 0,
+          "shadowOpacity": 0.3,
+          "shadowRadius": 3,
         }
       }
       testID="bottom-navigation-bar"
@@ -7639,10 +7795,16 @@ exports[`renders custom icon and label with custom colors in non-shifting bottom
             <View
               pointerEvents="none"
               style={
-                {
-                  "paddingBottom": 16,
-                  "paddingTop": 12,
-                }
+                [
+                  {
+                    "paddingBottom": 16,
+                    "paddingTop": 12,
+                  },
+                  {
+                    "paddingBottom": 10,
+                    "paddingTop": 6,
+                  },
+                ]
               }
             >
               <View
@@ -7652,7 +7814,7 @@ exports[`renders custom icon and label with custom colors in non-shifting bottom
                     "alignSelf": "center",
                     "height": 32,
                     "justifyContent": "center",
-                    "marginBottom": 4,
+                    "marginBottom": 0,
                     "marginHorizontal": 12,
                     "marginTop": 0,
                     "width": 32,
@@ -7983,10 +8145,16 @@ exports[`renders custom icon and label with custom colors in non-shifting bottom
             <View
               pointerEvents="none"
               style={
-                {
-                  "paddingBottom": 16,
-                  "paddingTop": 12,
-                }
+                [
+                  {
+                    "paddingBottom": 16,
+                    "paddingTop": 12,
+                  },
+                  {
+                    "paddingBottom": 10,
+                    "paddingTop": 6,
+                  },
+                ]
               }
             >
               <View
@@ -7996,7 +8164,7 @@ exports[`renders custom icon and label with custom colors in non-shifting bottom
                     "alignSelf": "center",
                     "height": 32,
                     "justifyContent": "center",
-                    "marginBottom": 4,
+                    "marginBottom": 0,
                     "marginHorizontal": 12,
                     "marginTop": 0,
                     "width": 32,
@@ -8310,10 +8478,16 @@ exports[`renders custom icon and label with custom colors in non-shifting bottom
             <View
               pointerEvents="none"
               style={
-                {
-                  "paddingBottom": 16,
-                  "paddingTop": 12,
-                }
+                [
+                  {
+                    "paddingBottom": 16,
+                    "paddingTop": 12,
+                  },
+                  {
+                    "paddingBottom": 10,
+                    "paddingTop": 6,
+                  },
+                ]
               }
             >
               <View
@@ -8323,7 +8497,7 @@ exports[`renders custom icon and label with custom colors in non-shifting bottom
                     "alignSelf": "center",
                     "height": 32,
                     "justifyContent": "center",
-                    "marginBottom": 4,
+                    "marginBottom": 0,
                     "marginHorizontal": 12,
                     "marginTop": 0,
                     "width": 32,
@@ -8672,17 +8846,17 @@ exports[`renders custom icon and label with custom colors in shifting bottom nav
     collapsable={false}
     style={
       {
-        "backgroundColor": "transparent",
+        "backgroundColor": "rgb(236, 230, 243)",
         "bottom": 0,
         "left": 0,
         "right": 0,
         "shadowColor": "#000",
         "shadowOffset": {
-          "height": 0,
+          "height": 6,
           "width": 0,
         },
-        "shadowOpacity": 0,
-        "shadowRadius": 0,
+        "shadowOpacity": 0.15,
+        "shadowRadius": 10,
       }
     }
     testID="bottom-navigation-bar-outer-layer"
@@ -8693,15 +8867,15 @@ exports[`renders custom icon and label with custom colors in shifting bottom nav
       pointerEvents="none"
       style={
         {
-          "backgroundColor": "transparent",
+          "backgroundColor": "rgb(236, 230, 243)",
           "flex": undefined,
           "shadowColor": "#000",
           "shadowOffset": {
-            "height": 0,
+            "height": 2,
             "width": 0,
           },
-          "shadowOpacity": 0,
-          "shadowRadius": 0,
+          "shadowOpacity": 0.3,
+          "shadowRadius": 3,
         }
       }
       testID="bottom-navigation-bar"
@@ -8779,10 +8953,16 @@ exports[`renders custom icon and label with custom colors in shifting bottom nav
             <View
               pointerEvents="none"
               style={
-                {
-                  "paddingBottom": 16,
-                  "paddingTop": 12,
-                }
+                [
+                  {
+                    "paddingBottom": 16,
+                    "paddingTop": 12,
+                  },
+                  {
+                    "paddingBottom": 10,
+                    "paddingTop": 6,
+                  },
+                ]
               }
             >
               <View
@@ -8792,7 +8972,7 @@ exports[`renders custom icon and label with custom colors in shifting bottom nav
                     "alignSelf": "center",
                     "height": 32,
                     "justifyContent": "center",
-                    "marginBottom": 4,
+                    "marginBottom": 0,
                     "marginHorizontal": 12,
                     "marginTop": 0,
                     "transform": [
@@ -9073,10 +9253,16 @@ exports[`renders custom icon and label with custom colors in shifting bottom nav
             <View
               pointerEvents="none"
               style={
-                {
-                  "paddingBottom": 16,
-                  "paddingTop": 12,
-                }
+                [
+                  {
+                    "paddingBottom": 16,
+                    "paddingTop": 12,
+                  },
+                  {
+                    "paddingBottom": 10,
+                    "paddingTop": 6,
+                  },
+                ]
               }
             >
               <View
@@ -9086,7 +9272,7 @@ exports[`renders custom icon and label with custom colors in shifting bottom nav
                     "alignSelf": "center",
                     "height": 32,
                     "justifyContent": "center",
-                    "marginBottom": 4,
+                    "marginBottom": 0,
                     "marginHorizontal": 12,
                     "marginTop": 0,
                     "transform": [
@@ -9350,10 +9536,16 @@ exports[`renders custom icon and label with custom colors in shifting bottom nav
             <View
               pointerEvents="none"
               style={
-                {
-                  "paddingBottom": 16,
-                  "paddingTop": 12,
-                }
+                [
+                  {
+                    "paddingBottom": 16,
+                    "paddingTop": 12,
+                  },
+                  {
+                    "paddingBottom": 10,
+                    "paddingTop": 6,
+                  },
+                ]
               }
             >
               <View
@@ -9363,7 +9555,7 @@ exports[`renders custom icon and label with custom colors in shifting bottom nav
                     "alignSelf": "center",
                     "height": 32,
                     "justifyContent": "center",
-                    "marginBottom": 4,
+                    "marginBottom": 0,
                     "marginHorizontal": 12,
                     "marginTop": 0,
                     "transform": [
@@ -9662,17 +9854,17 @@ exports[`renders non-shifting bottom navigation 1`] = `
     collapsable={false}
     style={
       {
-        "backgroundColor": "transparent",
+        "backgroundColor": "rgb(236, 230, 243)",
         "bottom": 0,
         "left": 0,
         "right": 0,
         "shadowColor": "#000",
         "shadowOffset": {
-          "height": 0,
+          "height": 6,
           "width": 0,
         },
-        "shadowOpacity": 0,
-        "shadowRadius": 0,
+        "shadowOpacity": 0.15,
+        "shadowRadius": 10,
       }
     }
     testID="bottom-navigation-bar-outer-layer"
@@ -9683,15 +9875,15 @@ exports[`renders non-shifting bottom navigation 1`] = `
       pointerEvents="none"
       style={
         {
-          "backgroundColor": "transparent",
+          "backgroundColor": "rgb(236, 230, 243)",
           "flex": undefined,
           "shadowColor": "#000",
           "shadowOffset": {
-            "height": 0,
+            "height": 2,
             "width": 0,
           },
-          "shadowOpacity": 0,
-          "shadowRadius": 0,
+          "shadowOpacity": 0.3,
+          "shadowRadius": 3,
         }
       }
       testID="bottom-navigation-bar"
@@ -9769,10 +9961,16 @@ exports[`renders non-shifting bottom navigation 1`] = `
             <View
               pointerEvents="none"
               style={
-                {
-                  "paddingBottom": 16,
-                  "paddingTop": 12,
-                }
+                [
+                  {
+                    "paddingBottom": 16,
+                    "paddingTop": 12,
+                  },
+                  {
+                    "paddingBottom": 10,
+                    "paddingTop": 6,
+                  },
+                ]
               }
             >
               <View
@@ -9782,7 +9980,7 @@ exports[`renders non-shifting bottom navigation 1`] = `
                     "alignSelf": "center",
                     "height": 32,
                     "justifyContent": "center",
-                    "marginBottom": 4,
+                    "marginBottom": 0,
                     "marginHorizontal": 12,
                     "marginTop": 0,
                     "width": 32,
@@ -10113,10 +10311,16 @@ exports[`renders non-shifting bottom navigation 1`] = `
             <View
               pointerEvents="none"
               style={
-                {
-                  "paddingBottom": 16,
-                  "paddingTop": 12,
-                }
+                [
+                  {
+                    "paddingBottom": 16,
+                    "paddingTop": 12,
+                  },
+                  {
+                    "paddingBottom": 10,
+                    "paddingTop": 6,
+                  },
+                ]
               }
             >
               <View
@@ -10126,7 +10330,7 @@ exports[`renders non-shifting bottom navigation 1`] = `
                     "alignSelf": "center",
                     "height": 32,
                     "justifyContent": "center",
-                    "marginBottom": 4,
+                    "marginBottom": 0,
                     "marginHorizontal": 12,
                     "marginTop": 0,
                     "width": 32,
@@ -10440,10 +10644,16 @@ exports[`renders non-shifting bottom navigation 1`] = `
             <View
               pointerEvents="none"
               style={
-                {
-                  "paddingBottom": 16,
-                  "paddingTop": 12,
-                }
+                [
+                  {
+                    "paddingBottom": 16,
+                    "paddingTop": 12,
+                  },
+                  {
+                    "paddingBottom": 10,
+                    "paddingTop": 6,
+                  },
+                ]
               }
             >
               <View
@@ -10453,7 +10663,7 @@ exports[`renders non-shifting bottom navigation 1`] = `
                     "alignSelf": "center",
                     "height": 32,
                     "justifyContent": "center",
-                    "marginBottom": 4,
+                    "marginBottom": 0,
                     "marginHorizontal": 12,
                     "marginTop": 0,
                     "width": 32,
@@ -10802,17 +11012,17 @@ exports[`renders shifting bottom navigation 1`] = `
     collapsable={false}
     style={
       {
-        "backgroundColor": "transparent",
+        "backgroundColor": "rgb(236, 230, 243)",
         "bottom": 0,
         "left": 0,
         "right": 0,
         "shadowColor": "#000",
         "shadowOffset": {
-          "height": 0,
+          "height": 6,
           "width": 0,
         },
-        "shadowOpacity": 0,
-        "shadowRadius": 0,
+        "shadowOpacity": 0.15,
+        "shadowRadius": 10,
       }
     }
     testID="bottom-navigation-bar-outer-layer"
@@ -10823,15 +11033,15 @@ exports[`renders shifting bottom navigation 1`] = `
       pointerEvents="none"
       style={
         {
-          "backgroundColor": "transparent",
+          "backgroundColor": "rgb(236, 230, 243)",
           "flex": undefined,
           "shadowColor": "#000",
           "shadowOffset": {
-            "height": 0,
+            "height": 2,
             "width": 0,
           },
-          "shadowOpacity": 0,
-          "shadowRadius": 0,
+          "shadowOpacity": 0.3,
+          "shadowRadius": 3,
         }
       }
       testID="bottom-navigation-bar"
@@ -10909,10 +11119,16 @@ exports[`renders shifting bottom navigation 1`] = `
             <View
               pointerEvents="none"
               style={
-                {
-                  "paddingBottom": 16,
-                  "paddingTop": 12,
-                }
+                [
+                  {
+                    "paddingBottom": 16,
+                    "paddingTop": 12,
+                  },
+                  {
+                    "paddingBottom": 10,
+                    "paddingTop": 6,
+                  },
+                ]
               }
             >
               <View
@@ -10922,7 +11138,7 @@ exports[`renders shifting bottom navigation 1`] = `
                     "alignSelf": "center",
                     "height": 32,
                     "justifyContent": "center",
-                    "marginBottom": 4,
+                    "marginBottom": 0,
                     "marginHorizontal": 12,
                     "marginTop": 0,
                     "transform": [
@@ -11203,10 +11419,16 @@ exports[`renders shifting bottom navigation 1`] = `
             <View
               pointerEvents="none"
               style={
-                {
-                  "paddingBottom": 16,
-                  "paddingTop": 12,
-                }
+                [
+                  {
+                    "paddingBottom": 16,
+                    "paddingTop": 12,
+                  },
+                  {
+                    "paddingBottom": 10,
+                    "paddingTop": 6,
+                  },
+                ]
               }
             >
               <View
@@ -11216,7 +11438,7 @@ exports[`renders shifting bottom navigation 1`] = `
                     "alignSelf": "center",
                     "height": 32,
                     "justifyContent": "center",
-                    "marginBottom": 4,
+                    "marginBottom": 0,
                     "marginHorizontal": 12,
                     "marginTop": 0,
                     "transform": [
@@ -11480,10 +11702,16 @@ exports[`renders shifting bottom navigation 1`] = `
             <View
               pointerEvents="none"
               style={
-                {
-                  "paddingBottom": 16,
-                  "paddingTop": 12,
-                }
+                [
+                  {
+                    "paddingBottom": 16,
+                    "paddingTop": 12,
+                  },
+                  {
+                    "paddingBottom": 10,
+                    "paddingTop": 6,
+                  },
+                ]
               }
             >
               <View
@@ -11493,7 +11721,7 @@ exports[`renders shifting bottom navigation 1`] = `
                     "alignSelf": "center",
                     "height": 32,
                     "justifyContent": "center",
-                    "marginBottom": 4,
+                    "marginBottom": 0,
                     "marginHorizontal": 12,
                     "marginTop": 0,
                     "transform": [
@@ -11757,10 +11985,16 @@ exports[`renders shifting bottom navigation 1`] = `
             <View
               pointerEvents="none"
               style={
-                {
-                  "paddingBottom": 16,
-                  "paddingTop": 12,
-                }
+                [
+                  {
+                    "paddingBottom": 16,
+                    "paddingTop": 12,
+                  },
+                  {
+                    "paddingBottom": 10,
+                    "paddingTop": 6,
+                  },
+                ]
               }
             >
               <View
@@ -11770,7 +12004,7 @@ exports[`renders shifting bottom navigation 1`] = `
                     "alignSelf": "center",
                     "height": 32,
                     "justifyContent": "center",
-                    "marginBottom": 4,
+                    "marginBottom": 0,
                     "marginHorizontal": 12,
                     "marginTop": 0,
                     "transform": [
@@ -12034,10 +12268,16 @@ exports[`renders shifting bottom navigation 1`] = `
             <View
               pointerEvents="none"
               style={
-                {
-                  "paddingBottom": 16,
-                  "paddingTop": 12,
-                }
+                [
+                  {
+                    "paddingBottom": 16,
+                    "paddingTop": 12,
+                  },
+                  {
+                    "paddingBottom": 10,
+                    "paddingTop": 6,
+                  },
+                ]
               }
             >
               <View
@@ -12047,7 +12287,7 @@ exports[`renders shifting bottom navigation 1`] = `
                     "alignSelf": "center",
                     "height": 32,
                     "justifyContent": "center",
-                    "marginBottom": 4,
+                    "marginBottom": 0,
                     "marginHorizontal": 12,
                     "marginTop": 0,
                     "transform": [

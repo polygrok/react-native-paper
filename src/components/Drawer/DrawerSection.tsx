@@ -31,6 +31,10 @@ export type Props = React.ComponentPropsWithRef<typeof View> & {
    * @optional
    */
   theme?: ThemeProp;
+  /**
+   * Makes drawer section font larger and removes some margin/padding.
+   */
+  enableCustomStyle?: boolean;
 };
 
 /**
@@ -70,6 +74,7 @@ const DrawerSection = ({
   style,
   showDivider = true,
   titleMaxFontSizeMultiplier,
+  enableCustomStyle,
   ...rest
 }: Props) => {
   const theme = useInternalTheme(themeOverrides);
@@ -77,23 +82,30 @@ const DrawerSection = ({
   const titleColor = isV3
     ? theme.colors.onSurfaceVariant
     : color(theme.colors.text).alpha(0.54).rgb().string();
-  const titleMargin = isV3 ? 28 : 16;
+  const titleMargin = isV3 && !enableCustomStyle ? 28 : 16;
   const font = isV3 ? theme.fonts.titleSmall : theme.fonts.medium;
 
   return (
     <View style={[styles.container, style]} {...rest}>
       {title && (
-        <View style={[styles.titleContainer, isV3 && styles.v3TitleContainer]}>
+        <View
+          style={[
+            styles.titleContainer,
+            isV3 && !enableCustomStyle
+              ? styles.v3TitleContainer
+              : { height: 40 },
+          ]}
+        >
           {title && (
             <Text
-              variant="titleSmall"
+              variant={enableCustomStyle ? 'titleMedium' : 'titleSmall'}
               numberOfLines={1}
               style={[
                 {
                   color: titleColor,
                   marginLeft: titleMargin,
-                  ...font,
                 },
+                !enableCustomStyle && { ...font },
               ]}
               maxFontSizeMultiplier={titleMaxFontSizeMultiplier}
             >
@@ -105,7 +117,7 @@ const DrawerSection = ({
       {children}
       {showDivider && (
         <Divider
-          {...(isV3 && { horizontalInset: true, bold: true })}
+          {...(isV3 && { horizontalInset: !enableCustomStyle, bold: true })}
           style={[styles.divider, isV3 && styles.v3Divider]}
           theme={theme}
         />
