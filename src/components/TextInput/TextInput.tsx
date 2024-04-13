@@ -52,11 +52,11 @@ export type Props = React.ComponentPropsWithRef<typeof NativeTextInput> & {
    */
   loadingStyle?: StyleProp<ViewStyle>;
   /**
-   * Any styles that should be applied to the loading indicator
+   * Any styles that should be applied to the activity indicator
    */
-  useNativeLoadingIndicator?: boolean;
+  useNativeActivityIndicator?: boolean;
   /**
-   * Whether to use RN Paper loading indicator or native loading indicator
+   * Whether to use RN Paper activity indicator or native activity indicator
    */
   label?: TextInputLabelProp;
   /**
@@ -238,6 +238,7 @@ const TextInput = forwardRef<TextInputHandles, Props>(
       contentStyle,
       render = DefaultRenderer,
       theme: themeOverrides,
+      useNativeActivityIndicator,
       ...rest
     }: Props,
     ref
@@ -494,8 +495,6 @@ const TextInput = forwardRef<TextInputHandles, Props>(
 
     const { maxFontSizeMultiplier = 1.5 } = rest;
 
-    console.log(`useNativeLoadingIndicator: ${rest.useNativeLoadingIndicator}`);
-
     if (mode === 'outlined') {
       return (
         <TextInputOutlined
@@ -503,7 +502,7 @@ const TextInput = forwardRef<TextInputHandles, Props>(
           disabled={disabled}
           loading={rest.loading}
           loadingStyle={rest.loadingStyle}
-          useNativeLoadingIndicator={rest.useNativeLoadingIndicator}
+          useNativeActivityIndicator={useNativeActivityIndicator}
           error={errorProp}
           multiline={multiline}
           editable={editable}
@@ -547,7 +546,7 @@ const TextInput = forwardRef<TextInputHandles, Props>(
         disabled={disabled}
         loading={rest.loading}
         loadingStyle={rest.loadingStyle}
-        useNativeLoadingIndicator={rest.useNativeLoadingIndicator}
+        useNativeActivityIndicator={useNativeActivityIndicator}
         error={errorProp}
         multiline={multiline}
         editable={editable}

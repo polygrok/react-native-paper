@@ -79,7 +79,7 @@ const TextInputOutlined = ({
   testID = 'text-input-outlined',
   contentStyle,
   loadingStyle,
-  useNativeActivityIndicator = false,
+  useNativeActivityIndicator,
   ...rest
 }: ChildTextInputProps) => {
   if (loading) {
@@ -291,6 +291,11 @@ const TextInputOutlined = ({
     affixHeight: ADORNMENT_SIZE,
     labelYOffset: -yOffset,
   });
+  const loadingTopPosition = calculateOutlinedIconAndAffixTopPosition({
+    height: outlinedHeight,
+    affixHeight: useNativeActivityIndicator ? 20 : 24,
+    labelYOffset: -yOffset,
+  });
 
   const rightAffixWidth = right
     ? rightLayout.width || ADORNMENT_SIZE
@@ -323,14 +328,16 @@ const TextInputOutlined = ({
     topPosition: {
       [AdornmentType.Icon]: iconTopPosition,
       [AdornmentType.Affix]: affixTopPosition,
+      [AdornmentType.Loading]: loadingTopPosition,
     },
     onAffixChange,
     isTextInputFocused: parentState.focused,
     maxFontSizeMultiplier: rest.maxFontSizeMultiplier,
     disabled,
     loadingStyle,
-    useNativeActivityIndicator,
+    useNativeActivityIndicator: !!useNativeActivityIndicator,
   };
+
   if (adornmentConfig.length) {
     adornmentProps = {
       ...adornmentProps,

@@ -18,6 +18,7 @@ import type {
   AdornmentStyleAdjustmentForNativeInput,
 } from './types';
 import ActivityIndicator from '../../../components/ActivityIndicator';
+import { useInternalTheme } from '../../../core/theming';
 import { getConstants } from '../helpers';
 
 export function getAdornmentConfig({
@@ -125,6 +126,7 @@ export interface TextInputAdornmentProps {
       [AdornmentSide.Right]: number | null;
     };
     [AdornmentType.Icon]: number;
+    [AdornmentType.Loading]: number;
   };
   onAffixChange: {
     [AdornmentSide.Left]: (event: LayoutChangeEvent) => void;
@@ -161,6 +163,8 @@ const TextInputAdornment: React.FunctionComponent<TextInputAdornmentProps> = ({
   loadingStyle,
   useNativeActivityIndicator,
 }) => {
+  const { isV3 } = useInternalTheme(theme);
+  const { ICON_OFFSET } = getConstants(isV3);
   if (adornmentConfig.length) {
     return (
       <>
@@ -206,8 +210,10 @@ const TextInputAdornment: React.FunctionComponent<TextInputAdornmentProps> = ({
           } else if (type === AdornmentType.Loading) {
             const style: StyleProp<ViewStyle> = [
               {
-                top: topPosition[AdornmentType.Icon],
-                [side]: 12,
+                top: topPosition[AdornmentType.Loading],
+                [side]: useNativeActivityIndicator
+                  ? ICON_OFFSET + 2
+                  : ICON_OFFSET,
                 position: 'absolute',
               },
               loadingStyle,
