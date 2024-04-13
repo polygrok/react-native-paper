@@ -41,6 +41,7 @@ import {
 } from './helpers';
 import InputLabel from './Label/InputLabel';
 import type { ChildTextInputProps, RenderProps } from './types';
+import ActivityIndicator from '../ActivityIndicator';
 
 const TextInputFlat = ({
   disabled = false,
@@ -74,6 +75,9 @@ const TextInputFlat = ({
   placeholderTextColor,
   testID = 'text-input-flat',
   contentStyle,
+  loading,
+  loadingStyle,
+  useNativeActivityIndicator = false,
   ...rest
 }: ChildTextInputProps) => {
   const isAndroid = Platform.OS === 'android';
@@ -99,6 +103,10 @@ const TextInputFlat = ({
 
   const isPaddingHorizontalPassed =
     paddingHorizontal !== undefined && typeof paddingHorizontal === 'number';
+
+  if (loading) {
+    right = <ActivityIndicator />;
+  }
 
   const adornmentConfig = getAdornmentConfig({
     left,
@@ -320,6 +328,9 @@ const TextInputFlat = ({
     isTextInputFocused: parentState.focused,
     maxFontSizeMultiplier: rest.maxFontSizeMultiplier,
     disabled,
+    loading,
+    loadingStyle,
+    useNativeActivityIndicator,
   };
   if (adornmentConfig.length) {
     adornmentProps = {

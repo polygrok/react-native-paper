@@ -114,13 +114,7 @@ const TextInputExample = () => {
     maxLengthName,
     flatTextSecureEntry,
     outlineTextSecureEntry,
-    iconsColor: {
-      flatLeftIcon,
-      flatRightIcon,
-      outlineLeftIcon,
-      outlineRightIcon,
-      customIcon,
-    },
+    iconsColor: { flatLeftIcon, flatRightIcon, outlineLeftIcon, customIcon },
   } = state;
 
   const _isUsernameValid = (name: string) => /^[a-zA-Z]*$/.test(name);
@@ -301,15 +295,8 @@ const TextInputExample = () => {
                 inputActionHandler('outlinedLargeText', outlinedLargeText)
               }
               left={<TextInput.Affix text="$" />}
-              right={
-                <TextInput.Icon
-                  icon="magnify"
-                  color={outlineRightIcon}
-                  onPress={() => {
-                    changeIconColor('outlineRightIcon');
-                  }}
-                />
-              }
+              loading={true} //! This is a test prop. Don't merge it
+              useNativeLoadingIndicator={true} //! This is a test prop. Don't merge it
             />
             <TextInput
               mode="outlined"

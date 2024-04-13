@@ -46,6 +46,18 @@ export type Props = React.ComponentPropsWithRef<typeof NativeTextInput> & {
   /**
    * The text or component to use for the floating label.
    */
+  loading?: boolean;
+  /**
+   * Override any 'right' icon with an activity indicator.
+   */
+  loadingStyle?: StyleProp<ViewStyle>;
+  /**
+   * Any styles that should be applied to the loading indicator
+   */
+  useNativeLoadingIndicator?: boolean;
+  /**
+   * Whether to use RN Paper loading indicator or native loading indicator
+   */
   label?: TextInputLabelProp;
   /**
    * Placeholder for the input.
@@ -482,11 +494,16 @@ const TextInput = forwardRef<TextInputHandles, Props>(
 
     const { maxFontSizeMultiplier = 1.5 } = rest;
 
+    console.log(`useNativeLoadingIndicator: ${rest.useNativeLoadingIndicator}`);
+
     if (mode === 'outlined') {
       return (
         <TextInputOutlined
           dense={dense}
           disabled={disabled}
+          loading={rest.loading}
+          loadingStyle={rest.loadingStyle}
+          useNativeLoadingIndicator={rest.useNativeLoadingIndicator}
           error={errorProp}
           multiline={multiline}
           editable={editable}
@@ -528,6 +545,9 @@ const TextInput = forwardRef<TextInputHandles, Props>(
       <TextInputFlat
         dense={dense}
         disabled={disabled}
+        loading={rest.loading}
+        loadingStyle={rest.loadingStyle}
+        useNativeLoadingIndicator={rest.useNativeLoadingIndicator}
         error={errorProp}
         multiline={multiline}
         editable={editable}

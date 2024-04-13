@@ -1,10 +1,12 @@
 import React from 'react';
-import type {
-  LayoutChangeEvent,
-  TextStyle,
-  StyleProp,
-  Animated,
+import {
+  type LayoutChangeEvent,
+  type TextStyle,
+  type StyleProp,
+  type Animated,
+  ViewStyle,
 } from 'react-native';
+import { ActivityIndicator as RNActivityIndicator } from 'react-native';
 
 import type { ThemeProp } from 'src/types';
 
@@ -15,6 +17,7 @@ import type {
   AdornmentConfig,
   AdornmentStyleAdjustmentForNativeInput,
 } from './types';
+import ActivityIndicator from '../../../components/ActivityIndicator';
 import { getConstants } from '../helpers';
 
 export function getAdornmentConfig({
@@ -36,6 +39,8 @@ export function getAdornmentConfig({
           type = AdornmentType.Affix;
         } else if (adornment.type === TextInputIcon) {
           type = AdornmentType.Icon;
+        } else if (adornment.type === ActivityIndicator) {
+          type = AdornmentType.Loading;
         }
         adornmentConfig.push({
           side,
@@ -134,6 +139,9 @@ export interface TextInputAdornmentProps {
   maxFontSizeMultiplier?: number | undefined | null;
   theme?: ThemeProp;
   disabled?: boolean;
+  loading?: boolean;
+  loadingStyle?: StyleProp<ViewStyle>;
+  useNativeActivityIndicator?: boolean;
 }
 
 const TextInputAdornment: React.FunctionComponent<TextInputAdornmentProps> = ({
@@ -150,6 +158,8 @@ const TextInputAdornment: React.FunctionComponent<TextInputAdornmentProps> = ({
   maxFontSizeMultiplier,
   theme,
   disabled,
+  loadingStyle,
+  useNativeActivityIndicator,
 }) => {
   if (adornmentConfig.length) {
     return (
@@ -191,6 +201,25 @@ const TextInputAdornment: React.FunctionComponent<TextInputAdornmentProps> = ({
                 onLayout={onAffixChange[side]}
                 visible={visible}
                 maxFontSizeMultiplier={maxFontSizeMultiplier}
+              />
+            );
+          } else if (type === AdornmentType.Loading) {
+            const style: StyleProp<ViewStyle> = [
+              {
+                top: topPosition[AdornmentType.Icon],
+                [side]: 12,
+                position: 'absolute',
+              },
+              loadingStyle,
+            ];
+
+            return useNativeActivityIndicator ? (
+              <RNActivityIndicator key={side} style={style} />
+            ) : (
+              <ActivityIndicator
+                key={side}
+                style={style}
+                onLayout={onAffixChange[side]}
               />
             );
           } else {

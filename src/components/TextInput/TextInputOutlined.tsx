@@ -41,9 +41,11 @@ import {
 import InputLabel from './Label/InputLabel';
 import LabelBackground from './Label/LabelBackground';
 import type { RenderProps, ChildTextInputProps } from './types';
+import ActivityIndicator from '../ActivityIndicator';
 
 const TextInputOutlined = ({
   disabled = false,
+  loading = false,
   editable = true,
   label,
   error = false,
@@ -76,8 +78,13 @@ const TextInputOutlined = ({
   placeholderTextColor,
   testID = 'text-input-outlined',
   contentStyle,
+  loadingStyle,
+  useNativeActivityIndicator = false,
   ...rest
 }: ChildTextInputProps) => {
+  if (loading) {
+    right = <ActivityIndicator />;
+  }
   const adornmentConfig = getAdornmentConfig({ left, right });
 
   const { colors, isV3, roundness } = theme;
@@ -321,6 +328,8 @@ const TextInputOutlined = ({
     isTextInputFocused: parentState.focused,
     maxFontSizeMultiplier: rest.maxFontSizeMultiplier,
     disabled,
+    loadingStyle,
+    useNativeActivityIndicator,
   };
   if (adornmentConfig.length) {
     adornmentProps = {
