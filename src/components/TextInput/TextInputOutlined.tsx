@@ -285,30 +285,9 @@ const TextInputOutlined = ({
     labelYOffset: -yOffset,
   });
 
-  // let useNativeActivityIndicator = false;
-  // const activityIndicatorIndex = adornmentConfig.findIndex(
-  //   (a) => a.type === AdornmentType.ActivityIndicator
-  // );
-  // if (activityIndicatorIndex !== -1) {
-  //   if (adornmentConfig[activityIndicatorIndex].side === AdornmentSide.Left) {
-  //     useNativeActivityIndicator =
-  //       React.isValidElement(left) &&
-  //       left.props.useNativeActivityIndicator === true;
-  //   } else if (
-  //     adornmentConfig[activityIndicatorIndex].side === AdornmentSide.Right
-  //   ) {
-  //     useNativeActivityIndicator =
-  //       React.isValidElement(right) &&
-  //       right.props.useNativeActivityIndicator === true;
-  //   }
-  // }
-
   const loadingTopPosition = calculateOutlinedIconAndAffixTopPosition({
     height: outlinedHeight,
     affixHeight: ADORNMENT_SIZE,
-    // useNativeActivityIndicator
-    //   ? REACT_NATIVE_ACTIVITY_INDICATOR_SMALL_SIZE
-    //   : ICON_SIZE,
     labelYOffset: -yOffset,
   });
 
