@@ -46,6 +46,3 @@ export const MD3_OUTLINED_INPUT_OFFSET = 16;
 
 export const OUTLINE_MINIMIZED_LABEL_Y_OFFSET = -6;
 export const MIN_DENSE_HEIGHT_OUTLINED = 48;
-
-// React Native Activity Indicator
-export const REACT_NATIVE_ACTIVITY_INDICATOR_SMALL_SIZE = 20;
