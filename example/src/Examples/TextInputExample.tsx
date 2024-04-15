@@ -114,7 +114,13 @@ const TextInputExample = () => {
     maxLengthName,
     flatTextSecureEntry,
     outlineTextSecureEntry,
-    iconsColor: { flatLeftIcon, flatRightIcon, outlineLeftIcon, customIcon },
+    iconsColor: {
+      flatLeftIcon,
+      flatRightIcon,
+      outlineLeftIcon,
+      outlineRightIcon,
+      customIcon,
+    },
   } = state;
 
   const _isUsernameValid = (name: string) => /^[a-zA-Z]*$/.test(name);
@@ -209,6 +215,19 @@ const TextInputExample = () => {
               }
             />
             <TextInput
+              style={styles.inputContainerStyle}
+              label="Flat input with Activity Indicator"
+              placeholder="Type something"
+              value={text}
+              onChangeText={(text) => inputActionHandler('text', text)}
+              maxLength={100}
+              right={
+                <TextInput.ActivityIndicator
+                  useNativeActivityIndicator={true}
+                />
+              }
+            />
+            <TextInput
               style={[styles.inputContainerStyle, styles.fontSize]}
               label="Flat input large font"
               placeholder="Type something"
@@ -287,6 +306,20 @@ const TextInputExample = () => {
             />
             <TextInput
               mode="outlined"
+              style={styles.inputContainerStyle}
+              label="Outlined with Activity Indicator"
+              placeholder="Press the icon to submit"
+              value={text}
+              onChangeText={(text) => inputActionHandler('text', text)}
+              maxLength={100}
+              right={
+                <TextInput.ActivityIndicator
+                  useNativeActivityIndicator={true}
+                />
+              }
+            />
+            <TextInput
+              mode="outlined"
               style={[styles.inputContainerStyle, styles.fontSize]}
               label="Outlined large font"
               placeholder="Type something"
@@ -295,8 +328,15 @@ const TextInputExample = () => {
                 inputActionHandler('outlinedLargeText', outlinedLargeText)
               }
               left={<TextInput.Affix text="$" />}
-              loading={true} //! This is a test prop. Don't merge it
-              useNativeLoadingIndicator={true} //! This is a test prop. Don't merge it
+              right={
+                <TextInput.Icon
+                  icon="magnify"
+                  color={outlineRightIcon}
+                  onPress={() => {
+                    changeIconColor('outlineRightIcon');
+                  }}
+                />
+              }
             />
             <TextInput
               mode="outlined"

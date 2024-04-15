@@ -10,6 +10,9 @@ import {
   TextLayoutEventData,
 } from 'react-native';
 
+import TextInputActivityIndicator, {
+  Props as TextInputActivityIndicatorProps,
+} from './Adornment/TextInputActivityIndicator';
 import TextInputAffix, {
   Props as TextInputAffixProps,
 } from './Adornment/TextInputAffix';
@@ -45,18 +48,6 @@ export type Props = React.ComponentPropsWithRef<typeof NativeTextInput> & {
   disabled?: boolean;
   /**
    * The text or component to use for the floating label.
-   */
-  loading?: boolean;
-  /**
-   * Override any 'right' icon with an activity indicator.
-   */
-  loadingStyle?: StyleProp<ViewStyle>;
-  /**
-   * Any styles that should be applied to the activity indicator
-   */
-  useNativeActivityIndicator?: boolean;
-  /**
-   * Whether to use RN Paper activity indicator or native activity indicator
    */
   label?: TextInputLabelProp;
   /**
@@ -192,6 +183,7 @@ interface CompoundedComponent
   > {
   Icon: React.FunctionComponent<TextInputIconProps>;
   Affix: React.FunctionComponent<Partial<TextInputAffixProps>>;
+  ActivityIndicator: React.FunctionComponent<TextInputActivityIndicatorProps>;
 }
 
 type TextInputHandles = Pick<
@@ -238,7 +230,6 @@ const TextInput = forwardRef<TextInputHandles, Props>(
       contentStyle,
       render = DefaultRenderer,
       theme: themeOverrides,
-      useNativeActivityIndicator,
       ...rest
     }: Props,
     ref
@@ -500,9 +491,6 @@ const TextInput = forwardRef<TextInputHandles, Props>(
         <TextInputOutlined
           dense={dense}
           disabled={disabled}
-          loading={rest.loading}
-          loadingStyle={rest.loadingStyle}
-          useNativeActivityIndicator={useNativeActivityIndicator}
           error={errorProp}
           multiline={multiline}
           editable={editable}
@@ -544,9 +532,6 @@ const TextInput = forwardRef<TextInputHandles, Props>(
       <TextInputFlat
         dense={dense}
         disabled={disabled}
-        loading={rest.loading}
-        loadingStyle={rest.loadingStyle}
-        useNativeActivityIndicator={useNativeActivityIndicator}
         error={errorProp}
         multiline={multiline}
         editable={editable}
@@ -590,5 +575,8 @@ TextInput.Icon = TextInputIcon;
 // @component ./Adornment/TextInputAffix.tsx
 // @ts-ignore Types of property 'theme' are incompatible.
 TextInput.Affix = TextInputAffix;
+
+// @component ./Adornment/TextInputActivityIndicator.tsx
+TextInput.ActivityIndicator = TextInputActivityIndicator;
 
 export default TextInput;

@@ -1,7 +1,7 @@
 export enum AdornmentType {
   Icon = 'icon',
   Affix = 'affix',
-  Loading = 'loading',
+  ActivityIndicator = 'activityIndicator',
 }
 export enum AdornmentSide {
   Right = 'right',

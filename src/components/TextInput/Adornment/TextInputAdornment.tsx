@@ -1,24 +1,23 @@
-import React from 'react';
+import React, { isValidElement } from 'react';
 import {
   type LayoutChangeEvent,
   type TextStyle,
   type StyleProp,
   type Animated,
-  ViewStyle,
 } from 'react-native';
-import { ActivityIndicator as RNActivityIndicator } from 'react-native';
 
 import type { ThemeProp } from 'src/types';
 
 import { AdornmentSide, AdornmentType, InputMode } from './enums';
+import TextInputActivityIndicator, {
+  ActivityIndicatorAdornment,
+} from './TextInputActivityIndicator';
 import TextInputAffix, { AffixAdornment } from './TextInputAffix';
 import TextInputIcon, { IconAdornment } from './TextInputIcon';
 import type {
   AdornmentConfig,
   AdornmentStyleAdjustmentForNativeInput,
 } from './types';
-import ActivityIndicator from '../../../components/ActivityIndicator';
-import { useInternalTheme } from '../../../core/theming';
 import { getConstants } from '../helpers';
 
 export function getAdornmentConfig({
@@ -40,8 +39,8 @@ export function getAdornmentConfig({
           type = AdornmentType.Affix;
         } else if (adornment.type === TextInputIcon) {
           type = AdornmentType.Icon;
-        } else if (adornment.type === ActivityIndicator) {
-          type = AdornmentType.Loading;
+        } else if (adornment.type === TextInputActivityIndicator) {
+          type = AdornmentType.ActivityIndicator;
         }
         adornmentConfig.push({
           side,
@@ -126,7 +125,7 @@ export interface TextInputAdornmentProps {
       [AdornmentSide.Right]: number | null;
     };
     [AdornmentType.Icon]: number;
-    [AdornmentType.Loading]: number;
+    [AdornmentType.ActivityIndicator]: number;
   };
   onAffixChange: {
     [AdornmentSide.Left]: (event: LayoutChangeEvent) => void;
@@ -141,9 +140,6 @@ export interface TextInputAdornmentProps {
   maxFontSizeMultiplier?: number | undefined | null;
   theme?: ThemeProp;
   disabled?: boolean;
-  loading?: boolean;
-  loadingStyle?: StyleProp<ViewStyle>;
-  useNativeActivityIndicator?: boolean;
 }
 
 const TextInputAdornment: React.FunctionComponent<TextInputAdornmentProps> = ({
@@ -160,11 +156,7 @@ const TextInputAdornment: React.FunctionComponent<TextInputAdornmentProps> = ({
   maxFontSizeMultiplier,
   theme,
   disabled,
-  loadingStyle,
-  useNativeActivityIndicator,
 }) => {
-  const { isV3 } = useInternalTheme(theme);
-  const { ICON_OFFSET } = getConstants(isV3);
   if (adornmentConfig.length) {
     return (
       <>
@@ -207,25 +199,19 @@ const TextInputAdornment: React.FunctionComponent<TextInputAdornmentProps> = ({
                 maxFontSizeMultiplier={maxFontSizeMultiplier}
               />
             );
-          } else if (type === AdornmentType.Loading) {
-            const style: StyleProp<ViewStyle> = [
-              {
-                top: topPosition[AdornmentType.Loading],
-                [side]: useNativeActivityIndicator
-                  ? ICON_OFFSET + 2
-                  : ICON_OFFSET,
-                position: 'absolute',
-              },
-              loadingStyle,
-            ];
-
-            return useNativeActivityIndicator ? (
-              <RNActivityIndicator key={side} style={style} />
-            ) : (
-              <ActivityIndicator
+          } else if (type === AdornmentType.ActivityIndicator) {
+            const { useNativeActivityIndicator } =
+              isValidElement(inputAdornmentComponent) &&
+              inputAdornmentComponent.props;
+            return (
+              <ActivityIndicatorAdornment
+                {...commonProps}
                 key={side}
-                style={style}
-                onLayout={onAffixChange[side]}
+                indicator={inputAdornmentComponent}
+                topPosition={topPosition[AdornmentType.ActivityIndicator]}
+                theme={theme}
+                disabled={disabled}
+                useNativeActivityIndicator={useNativeActivityIndicator}
               />
             );
           } else {

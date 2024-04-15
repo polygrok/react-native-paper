@@ -41,11 +41,9 @@ import {
 import InputLabel from './Label/InputLabel';
 import LabelBackground from './Label/LabelBackground';
 import type { RenderProps, ChildTextInputProps } from './types';
-import ActivityIndicator from '../ActivityIndicator';
 
 const TextInputOutlined = ({
   disabled = false,
-  loading = false,
   editable = true,
   label,
   error = false,
@@ -78,13 +76,8 @@ const TextInputOutlined = ({
   placeholderTextColor,
   testID = 'text-input-outlined',
   contentStyle,
-  loadingStyle,
-  useNativeActivityIndicator,
   ...rest
 }: ChildTextInputProps) => {
-  if (loading) {
-    right = <ActivityIndicator />;
-  }
   const adornmentConfig = getAdornmentConfig({ left, right });
 
   const { colors, isV3, roundness } = theme;
@@ -291,9 +284,31 @@ const TextInputOutlined = ({
     affixHeight: ADORNMENT_SIZE,
     labelYOffset: -yOffset,
   });
+
+  // let useNativeActivityIndicator = false;
+  // const activityIndicatorIndex = adornmentConfig.findIndex(
+  //   (a) => a.type === AdornmentType.ActivityIndicator
+  // );
+  // if (activityIndicatorIndex !== -1) {
+  //   if (adornmentConfig[activityIndicatorIndex].side === AdornmentSide.Left) {
+  //     useNativeActivityIndicator =
+  //       React.isValidElement(left) &&
+  //       left.props.useNativeActivityIndicator === true;
+  //   } else if (
+  //     adornmentConfig[activityIndicatorIndex].side === AdornmentSide.Right
+  //   ) {
+  //     useNativeActivityIndicator =
+  //       React.isValidElement(right) &&
+  //       right.props.useNativeActivityIndicator === true;
+  //   }
+  // }
+
   const loadingTopPosition = calculateOutlinedIconAndAffixTopPosition({
     height: outlinedHeight,
-    affixHeight: useNativeActivityIndicator ? 20 : 24,
+    affixHeight: ADORNMENT_SIZE,
+    // useNativeActivityIndicator
+    //   ? REACT_NATIVE_ACTIVITY_INDICATOR_SMALL_SIZE
+    //   : ICON_SIZE,
     labelYOffset: -yOffset,
   });
 
@@ -328,16 +343,13 @@ const TextInputOutlined = ({
     topPosition: {
       [AdornmentType.Icon]: iconTopPosition,
       [AdornmentType.Affix]: affixTopPosition,
-      [AdornmentType.Loading]: loadingTopPosition,
+      [AdornmentType.ActivityIndicator]: loadingTopPosition,
     },
     onAffixChange,
     isTextInputFocused: parentState.focused,
     maxFontSizeMultiplier: rest.maxFontSizeMultiplier,
     disabled,
-    loadingStyle,
-    useNativeActivityIndicator: !!useNativeActivityIndicator,
   };
-
   if (adornmentConfig.length) {
     adornmentProps = {
       ...adornmentProps,

@@ -41,7 +41,6 @@ import {
 } from './helpers';
 import InputLabel from './Label/InputLabel';
 import type { ChildTextInputProps, RenderProps } from './types';
-import ActivityIndicator from '../ActivityIndicator';
 
 const TextInputFlat = ({
   disabled = false,
@@ -75,9 +74,6 @@ const TextInputFlat = ({
   placeholderTextColor,
   testID = 'text-input-flat',
   contentStyle,
-  loading,
-  loadingStyle,
-  useNativeActivityIndicator = false,
   ...rest
 }: ChildTextInputProps) => {
   const isAndroid = Platform.OS === 'android';
@@ -103,10 +99,6 @@ const TextInputFlat = ({
 
   const isPaddingHorizontalPassed =
     paddingHorizontal !== undefined && typeof paddingHorizontal === 'number';
-
-  if (loading) {
-    right = <ActivityIndicator />;
-  }
 
   const adornmentConfig = getAdornmentConfig({
     left,
@@ -245,8 +237,8 @@ const TextInputFlat = ({
     (!height ? (dense ? LABEL_PADDING_TOP_DENSE : LABEL_PADDING_TOP) : 0);
 
   const iconTopPosition = (flatHeight - ADORNMENT_SIZE) / 2;
-  const loadingTopPosition =
-    (flatHeight - (useNativeActivityIndicator ? 20 : ADORNMENT_SIZE)) / 2;
+
+  const loadingTopPosition = iconTopPosition;
 
   const leftAffixTopPosition = leftLayout.height
     ? calculateFlatAffixTopPosition({
@@ -325,15 +317,12 @@ const TextInputFlat = ({
     topPosition: {
       [AdornmentType.Affix]: affixTopPosition,
       [AdornmentType.Icon]: iconTopPosition,
-      [AdornmentType.Loading]: loadingTopPosition,
+      [AdornmentType.ActivityIndicator]: loadingTopPosition,
     },
     onAffixChange,
     isTextInputFocused: parentState.focused,
     maxFontSizeMultiplier: rest.maxFontSizeMultiplier,
     disabled,
-    loading,
-    loadingStyle,
-    useNativeActivityIndicator,
   };
   if (adornmentConfig.length) {
     adornmentProps = {
