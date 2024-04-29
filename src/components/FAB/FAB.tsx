@@ -9,6 +9,7 @@ import {
   StyleSheet,
   View,
   ViewStyle,
+  ActivityIndicator as RNActivityIndicator,
 } from 'react-native';
 
 import { getExtendedFabStyle, getFABColors, getFabStyle } from './utils';
@@ -98,6 +99,10 @@ export type Props = $Omit<$RemoveChildren<typeof Surface>, 'mode'> & {
   /**
    * Function to execute on press.
    */
+  /**
+   * Whether to use the OS native activity indicator when `loading` is true.
+   */
+  useNativeActivityIndicator?: boolean;
   onPress?: (e: GestureResponderEvent) => void;
   /**
    * Function to execute on long press.
@@ -199,6 +204,7 @@ const FAB = forwardRef<View, Props>(
       visible = true,
       uppercase: uppercaseProp,
       loading,
+      useNativeActivityIndicator,
       testID = 'fab',
       size = 'medium',
       customSize,
@@ -267,6 +273,23 @@ const FAB = forwardRef<View, Props>(
 
     const newAccessibilityState = { ...accessibilityState, disabled };
 
+    const renderActivityIndicator = () => {
+      if (useNativeActivityIndicator) {
+        return (
+          <RNActivityIndicator
+            size={isLargeSize ? 'large' : 'small'}
+            color={foregroundColor}
+          />
+        );
+      }
+      return (
+        <ActivityIndicator
+          size={customSize ? customSize / 2 : loadingIndicatorSize}
+          color={foregroundColor}
+        />
+      );
+    };
+
     return (
       <Surface
         ref={ref}
@@ -317,12 +340,7 @@ const FAB = forwardRef<View, Props>(
                 color={foregroundColor}
               />
             ) : null}
-            {loading ? (
-              <ActivityIndicator
-                size={customSize ? customSize / 2 : loadingIndicatorSize}
-                color={foregroundColor}
-              />
-            ) : null}
+            {loading ? renderActivityIndicator() : null}
             {label ? (
               <Text
                 variant="labelLarge"
