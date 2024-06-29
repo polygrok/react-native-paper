@@ -2,7 +2,6 @@ import * as React from 'react';
 import {
   Animated,
   ColorValue,
-  Easing,
   I18nManager,
   StyleProp,
   StyleSheet,
@@ -10,6 +9,13 @@ import {
   ViewStyle,
 } from 'react-native';
 
+import Reanimated, {
+  Easing,
+  interpolate,
+  runOnJS,
+  useSharedValue,
+  withTiming,
+} from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import useLatestCallback from 'use-latest-callback';
 
@@ -163,9 +169,7 @@ const Snackbar = ({
   const theme = useInternalTheme(themeOverrides);
   const { bottom, right, left } = useSafeAreaInsets();
 
-  const { current: opacity } = React.useRef<Animated.Value>(
-    new Animated.Value(0.0)
-  );
+  const opacity = useSharedValue(0);
   const hideTimeout = React.useRef<NodeJS.Timeout | undefined>(undefined);
 
   const [hidden, setHidden] = React.useState(!visible);
@@ -176,49 +180,43 @@ const Snackbar = ({
     // show
     if (hideTimeout.current) clearTimeout(hideTimeout.current);
     setHidden(false);
-    Animated.timing(opacity, {
-      toValue: 1,
-      duration: 200 * scale,
-      easing: Easing.out(Easing.ease),
-      useNativeDriver: true,
-    }).start(({ finished }) => {
-      if (finished) {
-        const isInfinity =
-          duration === Number.POSITIVE_INFINITY ||
-          duration === Number.NEGATIVE_INFINITY;
+    opacity.value = withTiming(
+      1,
+      {
+        duration: 200 * scale,
+        easing: Easing.out(Easing.ease),
+      },
+      (finished) => {
+        if (finished) {
+          const isInfinity =
+            duration === Number.POSITIVE_INFINITY ||
+            duration === Number.NEGATIVE_INFINITY;
 
-        if (!isInfinity) {
-          hideTimeout.current = setTimeout(
-            onDismiss,
-            duration
-          ) as unknown as NodeJS.Timeout;
+          if (!isInfinity) {
+            hideTimeout.current = setTimeout(
+              onDismiss,
+              duration
+            ) as unknown as NodeJS.Timeout;
+          }
         }
       }
-    });
+    );
   });
 
   const handleOnHidden = useLatestCallback(() => {
-    // hide
-    if (hideTimeout.current) {
-      clearTimeout(hideTimeout.current);
-    }
-
-    Animated.timing(opacity, {
-      toValue: 0,
-      duration: 100 * scale,
-      useNativeDriver: true,
-    }).start(({ finished }) => {
-      if (finished) {
-        setHidden(true);
+    opacity.value = withTiming(
+      1,
+      {
+        duration: 100 * scale,
+      },
+      (finished) => {
+        'worklet';
+        if (finished) {
+          runOnJS(setHidden)(true);
+        }
       }
-    });
+    );
   });
-
-  React.useEffect(() => {
-    return () => {
-      if (hideTimeout.current) clearTimeout(hideTimeout.current);
-    };
-  }, []);
 
   React.useLayoutEffect(() => {
     if (visible) {
@@ -276,12 +274,13 @@ const Snackbar = ({
     );
   };
 
+  const AnimatedSurface = Reanimated.createAnimatedComponent(Surface);
   return (
     <View
       pointerEvents="box-none"
       style={[styles.wrapper, wrapperPaddings, wrapperStyle]}
     >
-      <Surface
+      <AnimatedSurface
         pointerEvents="box-none"
         accessibilityLiveRegion="polite"
         theme={theme}
@@ -295,10 +294,7 @@ const Snackbar = ({
             transform: [
               {
                 scale: visible
-                  ? opacity.interpolate({
-                      inputRange: [0, 1],
-                      outputRange: [0.9, 1],
-                    })
+                  ? interpolate(opacity.value, [0, 1], [0.9, 1])
                   : 1,
               },
             ],
@@ -359,7 +355,7 @@ const Snackbar = ({
             ) : null}
           </View>
         )}
-      </Surface>
+      </AnimatedSurface>
     </View>
   );
 };
